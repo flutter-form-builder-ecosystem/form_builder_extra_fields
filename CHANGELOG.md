@@ -1,3 +1,7 @@
+## [8.2.0] - 12-Jul-2022
+
+* Moved repository
+
 ## [8.1.0] - 18-May-2022
 
 * Bump up `dropdown_search` package version
