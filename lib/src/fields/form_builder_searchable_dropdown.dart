@@ -1,4 +1,3 @@
-import 'package:dropdown_search/dropdown_search.dart' as dropdown_search;
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -7,7 +6,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
   final bool shouldRequestFocus;
 
-  ///true if the filter on items is applied onlie (via API)
+  ///true if the filter on items is applied online (via API)
   // final bool isFilteredOnline;
 
   ///show/hide clear selected item
@@ -88,13 +87,13 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
   final PopupProps<T> popupProps;
 
   ///custom dropdown clear button icon properties
-  final IconButtonProps? clearButtonProps;
+  final ClearButtonProps? clearButtonProps;
 
   /// style on which to base the label
   final TextStyle? dropdownSearchTextStyle;
 
   ///custom dropdown icon button properties
-  final IconButtonProps? dropdownButtonProps;
+  final DropdownButtonProps? dropdownButtonProps;
 
   /// Creates field for selecting value(s) from a searchable list
   FormBuilderSearchableDropdown({
@@ -128,7 +127,8 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
     this.selectedItem,
     this.selectedItems = const [],
     this.shouldRequestFocus = false,
-    this.showClearButton = false,
+    @Deprecated('Please use [clearButtonProps] instead')
+        this.showClearButton = false,
     this.popupProps = const PopupProps.menu(),
     this.clearButtonProps,
     this.dropdownSearchTextStyle,
@@ -156,19 +156,23 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
           focusNode: focusNode,
           builder: (FormFieldState<T?> field) {
             final state = field as FormBuilderSearchableDropdownState<T>;
-            return dropdown_search.DropdownSearch<T>(
+            return DropdownSearch<T>(
               // Hack to rebuild when didChange is called
               key: UniqueKey(),
               asyncItems: asyncItems,
-              clearButtonProps: clearButtonProps,
+              clearButtonProps: clearButtonProps ??
+                  ClearButtonProps(isVisible: showClearButton),
               compareFn: compareFn,
               enabled: state.enabled,
               dropdownBuilder: dropdownBuilder,
-              dropdownButtonProps: dropdownButtonProps,
-              dropdownSearchDecoration: state.decoration,
-              dropdownSearchTextAlign: dropdownSearchTextAlign,
-              dropdownSearchTextAlignVertical: dropdownSearchTextAlignVertical,
-              dropdownSearchTextStyle: dropdownSearchTextStyle,
+              dropdownButtonProps:
+                  dropdownButtonProps ?? const DropdownButtonProps(),
+              dropdownDecoratorProps: DropDownDecoratorProps(
+                dropdownSearchDecoration: state.decoration,
+                textAlign: dropdownSearchTextAlign,
+                textAlignVertical: dropdownSearchTextAlignVertical,
+                baseStyle: dropdownSearchTextStyle,
+              ),
               filterFn: filterFn,
               // isFilteredOnline: isFilteredOnline,
               items: items,
@@ -182,7 +186,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
               },
               popupProps: popupProps,
               selectedItem: state.value,
-              showClearButton: showClearButton,
             );
           },
         );
