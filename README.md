@@ -1,173 +1,40 @@
 # Form Builder Extra Fields
 
-FormBuilder Extra Fields provides common ready-made form input fields for [`flutter_form_builder` package](https://pub.dev/packages/flutter_form_builder). The package gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
-___
+FormBuilder Extra Fields provides common ready-made form input fields for [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package. The package gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
+
 
 [![Pub Version](https://img.shields.io/pub/v/form_builder_extra_fields?logo=flutter&style=for-the-badge)](https://pub.dev/packages/form_builder_extra_fields)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/flutter-form-builder-ecosystem/form_builder_extra_fields/Base?logo=github&style=for-the-badge)](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/actions/workflows/base.yaml)
 [![Codecov](https://img.shields.io/codecov/c/github/flutter-form-builder-ecosystem/form_builder_extra_fields?logo=codecov&style=for-the-badge)](https://codecov.io/gh/flutter-form-builder-ecosystem/form_builder_extra_fields/)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/flutter-form-builder-ecosystem/form_builder_extra_fields?logo=codefactor&style=for-the-badge)](https://www.codefactor.io/repository/github/flutter-form-builder-ecosystem/form_builder_extra_fields)
-
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/danvick)
-
+[![Discord](https://img.shields.io/discord/985922433578053673?logo=discord&style=for-the-badge)](https://discord.com/invite/25KNPMJQf2)
 ___
 
+- [Features](#features)
+- [Inputs](#inpus)
+    - [Parameters](#parameters)
+- [Use](#use)
+    - [Setup](#setup)
+    - [Basic use](#basic-use)
+- [Support](#support)
+    - [Contribute](#contribute)
+    - [Questions and answers](#questions-and-answers)
+    - [Donations](#donations)
+- [Roadmap](#roadmap)
+- [Ecosystem](#ecosystem)
+- [Thanks to](#thanks-to)
+    - [Contributors](#contributors)
 
-### Example
+## Features
 
-```dart
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
+- Add several type of inputs to `flutter_form_builder`
 
-...
-
-final _formKey = GlobalKey<FormBuilderState>();
-final continents = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
-...
-
-
-@override
-Widget build(BuildContext context) {
-  return FormBuilder(
-    key: _formKey,
-    autovalidate: true,
-    child: Column(
-      children: <Widget>[
-        FormBuilderSearchableDropdown(
-          name: 'searchable_dropdown',
-          items: continents,
-          decoration:
-              const InputDecoration(labelText: 'Searchable Dropdown'),
-        ),
-        const SizedBox(height: 15),
-        FormBuilderColorPickerField(
-          name: 'color_picker',
-          initialValue: Colors.yellow,
-          // readOnly: true,
-          colorPickerType: ColorPickerType.MaterialPicker,
-          decoration: const InputDecoration(labelText: 'Color Picker'),
-        ),
-        FormBuilderCupertinoDateTimePicker(
-          name: 'date_time',
-          initialValue: DateTime.now(),
-          inputType: CupertinoDateTimePickerInputType.both,
-          decoration: const InputDecoration(
-            labelText: 'Cupertino DateTime Picker',
-          ),
-          locale: Locale.fromSubtags(languageCode: 'en_GB'),
-        ),
-        FormBuilderCupertinoDateTimePicker(
-          name: 'date',
-          initialValue: DateTime.now(),
-          inputType: CupertinoDateTimePickerInputType.date,
-          decoration: const InputDecoration(
-            labelText: 'Cupertino DateTime Picker - Date Only',
-          ),
-          locale: Locale.fromSubtags(languageCode: 'en_GB'),
-        ),
-        FormBuilderCupertinoDateTimePicker(
-          name: 'time',
-          initialValue: DateTime.now(),
-          inputType: CupertinoDateTimePickerInputType.time,
-          decoration: const InputDecoration(
-            labelText: 'Cupertino DateTime Picker - Time Only',
-          ),
-          locale: Locale.fromSubtags(languageCode: 'en_GB'),
-        ),
-        FormBuilderTypeAhead<String>(
-          decoration: const InputDecoration(
-              labelText: 'TypeAhead (Autocomplete TextField)',
-              hintText: 'Start typing continent name'),
-          name: 'continent',
-          itemBuilder: (context, continent) {
-            return ListTile(title: Text(continent));
-          },
-          suggestionsCallback: (query) {
-            if (query.isNotEmpty) {
-              var lowercaseQuery = query.toLowerCase();
-              return continents.where((continent) {
-                return continent.toLowerCase().contains(lowercaseQuery);
-              }).toList(growable: false)
-                ..sort((a, b) => a
-                    .toLowerCase()
-                    .indexOf(lowercaseQuery)
-                    .compareTo(
-                        b.toLowerCase().indexOf(lowercaseQuery)));
-            } else {
-              return continents;
-            }
-          },
-        ),
-        FormBuilderTouchSpin(
-          decoration: const InputDecoration(labelText: 'TouchSpin'),
-          name: 'touch_spin',
-          initialValue: 10,
-          step: 1,
-          iconSize: 48.0,
-          addIcon: const Icon(Icons.arrow_right),
-          subtractIcon: const Icon(Icons.arrow_left),
-          
-        ),
-        FormBuilderRating(
-          decoration: const InputDecoration(labelText: 'Rating'),
-          name: 'rate',
-          iconSize: 32.0,
-          initialValue: 1.0,
-          max: 5.0,
-        ),
-        FormBuilderSignaturePad(
-          decoration: const InputDecoration(
-            labelText: 'Signature Pad',
-          ),
-          name: 'signature',
-          border: Border.all(color: Colors.green),
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: MaterialButton(
-                color: Theme.of(context).colorScheme.secondary,
-                child: Text(
-                  "Submit",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  _formKey.currentState.save();
-                  if (_formKey.currentState.validate()) {
-                    print(_formKey.currentState.value);
-                  } else {
-                    print("validation failed");
-                  }
-                },
-              ),
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: MaterialButton(
-                color: Theme.of(context).colorScheme.secondary,
-                child: Text(
-                  "Reset",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  _formKey.currentState.reset();
-                },
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-```
-
-## Input widgets
+## Inputs
 
 The currently supported fields include:
+
 * `FormBuilderChipsInput` - Takes a list of `Chip`s as input and suggests more options on typing
-* `FormBuilderColorPicker` - For `Color` input selection
+* `FormBuilderColorPicker` - Input for `Color` selection
 * `FormBuilderCupertinoDateTimePicker` - For `Date`, `Time` and `DateTime` input using a Cupertino-style picker
 * `FormBuilderRating` - For selection of a numerical value as a rating
 * `FormBuilderSearchableDropdown` - Field for selecting value(s) from a searchable list
@@ -175,6 +42,7 @@ The currently supported fields include:
 * `FormBuilderTouchSpin` - Selection of a number by tapping on a plus or minus icon
 * `FormBuilderTypeAhead` - Auto-completes user input from a list of items
 
+### Parameters
 
 In order to create an input field in the form, along with the label, and any applicable validation, there are several attributes that are supported by all types of inputs namely:
 
@@ -189,20 +57,66 @@ In order to create an input field in the form, along with the label, and any app
 | `valueTransformer` | `ValueTransformer<T>` | `null` | `No` | Function that transforms field value before saving to form value. e.g. transform TextField value for numeric field from `String` to `num` |
 The rest of the attributes will be determined by the type of Widget being used.
 
+## Use
+
+### Setup
+
+No especific setup required: only install the dependency and use :)
+
+### Basic use
+
+```dart
+final _formKey = GlobalKey<FormBuilderState>();
+
+FormBuilder(
+    key: _formKey,
+    child: FormBuilderColorPickerField(
+      name: 'color_picker',
+    ),
+)
+```
+
+See [pud.dev example tab](https://pub.dev/packages/form_builder_extra_fields/example) or [github code](example/lib/main.dart) for more details
+
+For more instructions about `FormBuilder`, see [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package
+
+
 ## Support
 
-### Issues and PRs
+### Contribute
 
-Any kind of support in the form of reporting bugs, answering questions or PRs is always appreciated.
+You have some ways to contribute to this packages
 
-### Coffee :-)
+ - Beginner: Reporting bugs or request new features
+ - Intermediate: Implement new features (from issues or not) and created pull requests
+ - Advanced: Join to [organization](#ecosystem) like a member and help coding, manage issues, dicuss new features and other things
 
-If this package was helpful to you in delivering your project or you just wanna to support this
-package, a cup of coffee would be highly appreciated ;-)
+ See [contribution file](https://github.com/flutter-form-builder-ecosystem/.github/blob/main/CONTRIBUTING.md) for more details
+
+### Questions and answers
+
+You can join to [our Discord server](https://discord.gg/25KNPMJQf2) or search answers in [StackOverflow](https://stackoverflow.com/questions/tagged/flutter-form-builder)
+
+### Donations
+
+Buy a coffe to [Danvick Miller](https://twitter.com/danvickmiller), creator of this awesome package
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/danvick)
 
-## Credits
+## Roadmap
+
+- Add more widget tests and missing tests for some fields
+- Remove or integrate dependencies and contribute with external dependencies
+- [Add visual examples](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/issues/21) (images, gifs, videos, sample application)
+- [Solve open issues](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/issues), [prioritizing bugs](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/labels/bug)
+
+## Ecosystem
+
+Take a look to [our awesome ecosystem](https://github.com/flutter-form-builder-ecosystem) and all packages in there
+
+## Thanks to
+
+### Contributors
 
 <a href="https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=flutter-form-builder-ecosystem/form_builder_extra_fields" />
