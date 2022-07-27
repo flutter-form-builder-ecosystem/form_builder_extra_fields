@@ -1,3 +1,9 @@
+## [8.3.0] - 27-Jul-2022
+
+* Apply license BSD-3-clause
+* Update dependency dropdown_search from 4.0.1 to 5.0.2
+* Refactor readme 
+
 ## [8.2.0] - 12-Jul-2022
 
 * Moved repository
