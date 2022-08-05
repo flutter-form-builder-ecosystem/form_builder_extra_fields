@@ -13,6 +13,7 @@ ___
 - [Features](#features)
 - [Inputs](#inpus)
     - [Parameters](#parameters)
+    - [Dependency parameters](#dependency-parameters)
 - [Use](#use)
     - [Setup](#setup)
     - [Basic use](#basic-use)
@@ -57,6 +58,21 @@ In order to create an input field in the form, along with the label, and any app
 | `valueTransformer` | `ValueTransformer<T>` | `null` | `No` | Function that transforms field value before saving to form value. e.g. transform TextField value for numeric field from `String` to `num` |
 The rest of the attributes will be determined by the type of Widget being used.
 
+### Dependency parameters
+
+Each field has a dependency with your own configurations. Take a look on dependencies repositories to understand the behaviour and properties:
+
+
+| Field | Dependency |
+|-------|------------|
+|`FormBuilderChipsInput`|[flutter_chips_input](https://pub.dev/packages/flutter_chips_input)|
+|`FormBuilderColorPicker`|[flutter_datetime_picker_bdaya](https://pub.dev/packages/flutter_datetime_picker_bdaya)|
+|`FormBuilderCupertinoDateTimePicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
+|`FormBuilderRating`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
+|`FormBuilderSignaturePad`|[signature](https://pub.dev/packages/signature)|
+|`FormBuilderTouchSpin`|[flutter_touch_spin](https://pub.dev/packages/flutter_touch_spin)|
+|`FormBuilderTypeAhead`|[flutter_typeahead](https://pub.dev/packages/flutter_typeahead)|
+
 ## Use
 
 ### Setup
@@ -79,7 +95,6 @@ FormBuilder(
 See [pud.dev example tab](https://pub.dev/packages/form_builder_extra_fields/example) or [github code](example/lib/main.dart) for more details
 
 For more instructions about `FormBuilder`, see [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package
-
 
 ## Support
 

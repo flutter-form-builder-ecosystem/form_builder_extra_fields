@@ -39,7 +39,7 @@ jobs:
       - name: Analyze static code
         run: flutter analyze
       - name: Run tests
-        run: flutter test
+        run: flutter test --coverage
       - name: Check publish warnings
         run: dart pub publish --dry-run
       - name: Build example

@@ -129,7 +129,10 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
     this.shouldRequestFocus = false,
     @Deprecated('Please use [clearButtonProps] instead')
         this.showClearButton = false,
-    this.popupProps = const PopupProps.menu(),
+    this.popupProps = const PopupProps.menu(
+      showSearchBox: true,
+      fit: FlexFit.loose,
+    ),
     this.clearButtonProps,
     this.dropdownSearchTextStyle,
     this.dropdownButtonProps,
@@ -174,7 +177,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
                 baseStyle: dropdownSearchTextStyle,
               ),
               filterFn: filterFn,
-              // isFilteredOnline: isFilteredOnline,
               items: items,
               itemAsString: itemAsString,
               onBeforeChange: onBeforeChange,
