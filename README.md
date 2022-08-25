@@ -69,6 +69,7 @@ Each field has a dependency with your own configurations. Take a look on depende
 |`FormBuilderColorPicker`|[flutter_datetime_picker_bdaya](https://pub.dev/packages/flutter_datetime_picker_bdaya)|
 |`FormBuilderCupertinoDateTimePicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
 |`FormBuilderRating`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
+|`FormBuilderSearchableDropdown`|[dropdown_search](https://pub.dev/packages/dropdown_search)|
 |`FormBuilderSignaturePad`|[signature](https://pub.dev/packages/signature)|
 |`FormBuilderTouchSpin`|[flutter_touch_spin](https://pub.dev/packages/flutter_touch_spin)|
 |`FormBuilderTypeAhead`|[flutter_typeahead](https://pub.dev/packages/flutter_typeahead)|
