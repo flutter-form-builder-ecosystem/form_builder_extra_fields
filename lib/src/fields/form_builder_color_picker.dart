@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -66,6 +67,8 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
   final bool enableInteractiveSelection;
   final InputCounterWidgetBuilder? buildCounter;
 
+  final Widget Function(Color?)? colorPreviewBuilder;
+
   FormBuilderColorPickerField({
     Key? key,
     //From Super
@@ -109,6 +112,7 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
     this.enableInteractiveSelection = true,
     this.buildCounter,
     this.controller,
+    this.colorPreviewBuilder,
   }) : super(
           key: key,
           initialValue: initialValue,
@@ -127,23 +131,19 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
             return TextField(
               style: style,
               decoration: state.decoration.copyWith(
-                suffixIcon: LayoutBuilder(
-                  key: ObjectKey(state.value),
-                  builder: (context, constraints) {
-                    return Container(
-                      key: ObjectKey(state.value),
-                      height: constraints.minHeight,
-                      width: constraints.minHeight,
-                      decoration: BoxDecoration(
-                        color: state.value,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
+                suffixIcon: colorPreviewBuilder != null
+                    ? colorPreviewBuilder(field.value)
+                    : LayoutBuilder(
+                        key: ObjectKey(state.value),
+                        builder: (context, constraints) {
+                          return Icon(
+                            Icons.circle,
+                            key: ObjectKey(state.value),
+                            size: constraints.minHeight,
+                            color: state.value,
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
               ),
               enabled: state.enabled,
               readOnly: readOnly,
@@ -178,8 +178,7 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
         );
 
   @override
-  FormBuilderColorPickerFieldState createState() =>
-      FormBuilderColorPickerFieldState();
+  FormBuilderColorPickerFieldState createState() => FormBuilderColorPickerFieldState();
 }
 
 class FormBuilderColorPickerFieldState
