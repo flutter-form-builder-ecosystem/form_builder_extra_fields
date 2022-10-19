@@ -177,7 +177,8 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
         );
 
   @override
-  FormBuilderColorPickerFieldState createState() => FormBuilderColorPickerFieldState();
+  FormBuilderColorPickerFieldState createState() =>
+      FormBuilderColorPickerFieldState();
 }
 
 class FormBuilderColorPickerFieldState
