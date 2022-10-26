@@ -93,7 +93,7 @@ FormBuilder(
 )
 ```
 
-See [pud.dev example tab](https://pub.dev/packages/form_builder_extra_fields/example) or [github code](example/lib/main.dart) for more details
+See [pub.dev example tab](https://pub.dev/packages/form_builder_extra_fields/example) or [github code](example/lib/main.dart) for more details
 
 For more instructions about `FormBuilder`, see [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package
 
