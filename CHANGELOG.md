@@ -1,3 +1,12 @@
+## [8.4.0] - 26-Oct-2022
+
+* Set by default flex loose to `FormBuilderSearchableDropdown`
+* Set show search field by default
+* Added customization support for color picker field
+* Bumped dependencies :
+  * `flutter_form_builder` from 7.3.1 to 7.7.0
+  * `dropdown_search` from 5.0.2 to 5.0.3
+
 ## [8.3.0] - 27-Jul-2022
 
 * Apply license BSD-3-clause
