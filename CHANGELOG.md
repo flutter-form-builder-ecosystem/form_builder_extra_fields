@@ -1,3 +1,8 @@
+## [8.5.0] - 28-Oct-2022
+
+* Performance improvement on FormBuilderSignaturePad on Web
+
+
 ## [8.4.0] - 26-Oct-2022
 
 * Set by default flex loose to `FormBuilderSearchableDropdown`
