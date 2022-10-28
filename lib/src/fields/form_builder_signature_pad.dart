@@ -9,7 +9,15 @@ import 'package:signature/signature.dart';
 class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
   /// Controls the value of the signature pad.
   ///
-  /// If null, this widget will create its own [TextEditingController].
+  /// If null, this widget will create its own [SignatureController].
+  ///
+  /// If your controller has the "onDrawEnd" method, your method will be executed first and then the values will be saved in the form field
+  ///  _controller.onDrawEnd = () async {
+  ///       onDrawEnd?.call();
+  ///       requestFocus();
+  ///       final val = await _getControllerValue();
+  ///       didChange(val);
+  ///     };
   final SignatureController? controller;
 
   /// Width of the canvas
@@ -135,11 +143,16 @@ class FormBuilderSignaturePadState
   void initState() {
     super.initState();
     _controller = widget.controller ?? SignatureController();
-    _controller.addListener(() async {
+
+    final onDrawEnd = _controller.onDrawEnd;
+
+    _controller.onDrawEnd = () async {
+      onDrawEnd?.call();
       requestFocus();
       final val = await _getControllerValue();
       didChange(val);
-    });
+    };
+
     SchedulerBinding.instance.addPostFrameCallback((Duration duration) async {
       // Get initialValue or if points are set, use the  points
       didChange(initialValue ?? await _getControllerValue());
@@ -147,9 +160,7 @@ class FormBuilderSignaturePadState
   }
 
   Future<Uint8List?> _getControllerValue() async {
-    return await _controller.toImage() != null
-        ? await _controller.toPngBytes()
-        : null;
+    return await _controller.toPngBytes();
   }
 
   @override
