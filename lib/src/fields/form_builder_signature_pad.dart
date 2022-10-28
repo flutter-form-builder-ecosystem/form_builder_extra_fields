@@ -74,7 +74,7 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
             final theme = Theme.of(state.context);
             final localizations = MaterialLocalizations.of(state.context);
             final cancelButtonColor =
-                state.enabled ? theme.errorColor : theme.disabledColor;
+                state.enabled ? theme.colorScheme.error : theme.disabledColor;
 
             return InputDecorator(
               decoration: state.decoration,
