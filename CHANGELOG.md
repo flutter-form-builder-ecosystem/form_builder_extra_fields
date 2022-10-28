@@ -1,4 +1,4 @@
-## [8.4.0] - 26-Oct-2022
+## [8.4.0] - 28-Oct-2022
 
 * Set by default flex loose to `FormBuilderSearchableDropdown`
 * Set show search field by default
@@ -6,6 +6,7 @@
 * Bumped dependencies :
   * `flutter_form_builder` from 7.3.1 to 7.7.0
   * `dropdown_search` from 5.0.2 to 5.0.3
+* Performance improvement on FormBuilderSignaturePad on Web
 
 ## [8.3.0] - 27-Jul-2022
 
