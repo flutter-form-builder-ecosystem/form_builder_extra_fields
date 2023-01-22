@@ -72,25 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 FormBuilderSearchableDropdown<String>(
-                  popupProps: PopupProps.dialog(
-                    showSelectedItems: true,
-                    showSearchBox: true,
-                    isFilterOnline: true,
-                  ),
-                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  popupProps: const PopupProps.menu(showSearchBox: true),
                   dropdownSearchDecoration: const InputDecoration(
                     hintText: 'Search',
                     labelText: 'Search',
                   ),
                   name: 'searchable_dropdown_offline',
                   items: allCountries,
-                  clearButtonProps: ClearButtonProps(icon: Icon(Icons.close)),
                   onChanged: _onChanged,
                   decoration: const InputDecoration(
                       labelText: 'Searchable Dropdown Offline'),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                  ]),
                   filterFn: (country, filter) =>
                       country.toLowerCase().contains(filter.toLowerCase()),
                 ),
