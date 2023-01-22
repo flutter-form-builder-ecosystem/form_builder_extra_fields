@@ -74,7 +74,6 @@ class FormBuilderChipsInput<T> extends FormBuilderField<List<T>> {
             final state = field as FormBuilderChipsInputState<T>;
 
             return ChipsInput<T>(
-              key: UniqueKey(),
               initialValue: field.value!,
               enabled: state.enabled,
               decoration: state.decoration,

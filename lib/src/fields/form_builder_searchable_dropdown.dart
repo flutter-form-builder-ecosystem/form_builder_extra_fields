@@ -161,7 +161,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
             final state = field as FormBuilderSearchableDropdownState<T>;
             return DropdownSearch<T>(
               // Hack to rebuild when didChange is called
-              key: UniqueKey(),
               asyncItems: asyncItems,
               clearButtonProps: clearButtonProps ??
                   ClearButtonProps(isVisible: showClearButton),
