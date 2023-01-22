@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: FormBuilderLocalizations.delegate.supportedLocales,
+      supportedLocales: const [Locale('en')],
       home: const MyHomePage(),
     );
   }
@@ -72,16 +72,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 FormBuilderSearchableDropdown<String>(
-                  popupProps: const PopupProps.menu(showSearchBox: true),
+                  popupProps: PopupProps.dialog(
+                    showSelectedItems: true,
+                    showSearchBox: true,
+                    isFilterOnline: true,
+                  ),
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
                   dropdownSearchDecoration: const InputDecoration(
                     hintText: 'Search',
                     labelText: 'Search',
                   ),
                   name: 'searchable_dropdown_offline',
                   items: allCountries,
+                  clearButtonProps: ClearButtonProps(icon: Icon(Icons.close)),
                   onChanged: _onChanged,
                   decoration: const InputDecoration(
                       labelText: 'Searchable Dropdown Offline'),
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                  ]),
                   filterFn: (country, filter) =>
                       country.toLowerCase().contains(filter.toLowerCase()),
                 ),
