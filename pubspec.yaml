@@ -23,11 +23,6 @@ dependencies:
   flutter_typeahead: ^4.3.3
   flutter_datetime_picker_bdaya: ^2.0.0
   flutter_rating_bar: ^4.0.1
-
-dependency_overrides:
-  flutter_chips_input:
-    git: https://github.com/danvick/flutter_chips_input/
-    ref: flutter_37
     
 dev_dependencies:
   flutter_lints: ^2.0.1
