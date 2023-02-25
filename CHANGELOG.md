@@ -1,3 +1,10 @@
+## [8.5.0]
+
+* Remove flutter_chips_input dependency
+* Remove touch_input dependency
+* Update dependencies
+* Built with Flutter 3.7
+
 ## [8.4.0] - 28-Oct-2022
 
 * Set by default flex loose to `FormBuilderSearchableDropdown`
