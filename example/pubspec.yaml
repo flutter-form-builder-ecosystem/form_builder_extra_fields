@@ -5,19 +5,24 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_form_builder: ^7.8.0
   flutter_localizations:
     sdk: flutter
   form_builder_extra_fields:
     path: ../
-  form_builder_validators: ^8.1.1
+  form_builder_validators: ^8.5.0
+
+dependency_overrides:
+  intl: 0.17.0
 
 dev_dependencies:
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 
