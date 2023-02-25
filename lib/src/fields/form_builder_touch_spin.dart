@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_touch_spin/flutter_touch_spin.dart';
 import 'package:intl/intl.dart';
+
+import '../widgets/touch_spin/touch_spin.dart';
 
 /// Field for selection of a number by tapping on an add or subtract icon
 class FormBuilderTouchSpin extends FormBuilderField<num> {
