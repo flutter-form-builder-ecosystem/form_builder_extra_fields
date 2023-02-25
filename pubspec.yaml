@@ -1,8 +1,11 @@
 name: form_builder_extra_fields
 description: Additional ready-made form input fields for flutter_form_builder package
 version: 8.4.0
-homepage: https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields
 issue_tracker: https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/issues
+homepage: https://github.com/flutter-form-builder-ecosystem
+repository: https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields
+funding: 
+  - https://opencollective.com/flutter-form-builder-ecosystem
 
 environment:
   sdk: ">=2.19.0 <3.0.0"

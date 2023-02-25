@@ -65,13 +65,13 @@ Each field has a dependency with your own configurations. Take a look on depende
 
 | Field | Dependency |
 |-------|------------|
-|`FormBuilderChipsInput`|[flutter_chips_input](https://pub.dev/packages/flutter_chips_input)|
+|`FormBuilderChipsInput`|No dependency|
 |`FormBuilderColorPicker`|[flutter_datetime_picker_bdaya](https://pub.dev/packages/flutter_datetime_picker_bdaya)|
 |`FormBuilderCupertinoDateTimePicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
 |`FormBuilderRating`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
 |`FormBuilderSearchableDropdown`|[dropdown_search](https://pub.dev/packages/dropdown_search)|
 |`FormBuilderSignaturePad`|[signature](https://pub.dev/packages/signature)|
-|`FormBuilderTouchSpin`|[flutter_touch_spin](https://pub.dev/packages/flutter_touch_spin)|
+|`FormBuilderTouchSpin`|No dependency|
 |`FormBuilderTypeAhead`|[flutter_typeahead](https://pub.dev/packages/flutter_typeahead)|
 
 ## Use
@@ -115,9 +115,9 @@ You can join to [our Discord server](https://discord.gg/25KNPMJQf2) or search an
 
 ### Donations
 
-Buy a coffe to [Danvick Miller](https://twitter.com/danvickmiller), creator of this awesome package
+Donate or become a sponsor of Flutter Form Builder Ecosystem
 
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/danvick)
+[![Become a Sponsor](https://opencollective.com/flutter-form-builder-ecosystem/tiers/sponsor.svg?avatarHeight=56)](https://opencollective.com/flutter-form-builder-ecosystem)
 
 ## Roadmap
 
