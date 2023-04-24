@@ -4,7 +4,7 @@ version: 8.5.0
 issue_tracker: https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/issues
 homepage: https://github.com/flutter-form-builder-ecosystem
 repository: https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields
-funding: 
+funding:
   - https://opencollective.com/flutter-form-builder-ecosystem
 
 environment:
@@ -14,12 +14,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_form_builder: ^7.8.0
+  flutter_form_builder: ^8.0.0
   flutter_colorpicker: ^1.0.3
-  dropdown_search: ^5.0.5
+  dropdown_search: ^5.0.6
   signature: ^5.3.2
   intl: ^0.17.0
-  flutter_typeahead: ^4.3.6
+  flutter_typeahead: ^4.3.7
   flutter_datetime_picker_bdaya: ^2.0.0
   flutter_rating_bar: ^4.0.1
 

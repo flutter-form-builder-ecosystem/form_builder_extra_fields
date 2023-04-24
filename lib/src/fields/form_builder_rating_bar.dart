@@ -4,8 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 /// Field for selection of a numerical value using a star* rating widget
 class FormBuilderRatingBar extends FormBuilderField<double> {
-  final bool shouldRequestFocus;
-
   /// Defines color for glow.
   ///
   /// Default is [ThemeData.colorScheme.secondary].
@@ -122,7 +120,6 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
     this.maxRating,
     this.minRating = 0,
     this.ratingWidget,
-    this.shouldRequestFocus = false,
     this.tapOnlyMode = false,
     this.textDirection,
     this.unratedColor,
@@ -156,10 +153,6 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
                 itemPadding: widget.itemPadding,
                 // itemBuilder: widget.itemBuilder
                 onRatingUpdate: (rating) {
-                  if (shouldRequestFocus) {
-                    state.requestFocus();
-                  }
-
                   field.didChange(rating);
                 },
                 ratingWidget: widget.ratingWidget ??

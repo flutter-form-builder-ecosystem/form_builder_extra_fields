@@ -6,8 +6,6 @@ import '../widgets/touch_spin/touch_spin.dart';
 
 /// Field for selection of a number by tapping on an add or subtract icon
 class FormBuilderTouchSpin extends FormBuilderField<num> {
-  final bool shouldRequestFocus;
-
   /// Value to increment or decrement by
   final num step;
 
@@ -71,7 +69,6 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
     this.step = 1.0,
     this.subtractIcon = const Icon(Icons.remove),
     this.textStyle = const TextStyle(fontSize: 24),
-    this.shouldRequestFocus = false,
   }) : super(
           autovalidateMode: autovalidateMode,
           decoration: decoration,
@@ -100,9 +97,6 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
                 iconSize: iconSize,
                 onChanged: state.enabled
                     ? (value) {
-                        if (shouldRequestFocus) {
-                          state.requestFocus();
-                        }
                         state.didChange(value);
                       }
                     : null,

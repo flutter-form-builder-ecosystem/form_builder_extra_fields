@@ -4,14 +4,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// Field for selecting value(s) from a searchable list
 class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
-  final bool shouldRequestFocus;
-
-  ///true if the filter on items is applied online (via API)
-  // final bool isFilteredOnline;
-
-  ///show/hide clear selected item
-  final bool showClearButton;
-
   ///offline items list
   final List<T> items;
 
@@ -126,9 +118,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
     this.popupSelectionWidget,
     this.selectedItem,
     this.selectedItems = const [],
-    this.shouldRequestFocus = false,
-    @Deprecated('Please use [clearButtonProps] instead')
-        this.showClearButton = false,
     this.popupProps = const PopupProps.menu(
       showSearchBox: true,
       fit: FlexFit.loose,
@@ -162,8 +151,7 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
             return DropdownSearch<T>(
               // Hack to rebuild when didChange is called
               asyncItems: asyncItems,
-              clearButtonProps: clearButtonProps ??
-                  ClearButtonProps(isVisible: showClearButton),
+              clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
               compareFn: compareFn,
               enabled: state.enabled,
               dropdownBuilder: dropdownBuilder,
@@ -180,9 +168,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
               itemAsString: itemAsString,
               onBeforeChange: onBeforeChange,
               onChanged: (value) {
-                if (shouldRequestFocus) {
-                  state.requestFocus();
-                }
                 state.didChange(value);
               },
               popupProps: popupProps,

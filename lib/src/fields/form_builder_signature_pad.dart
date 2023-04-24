@@ -148,7 +148,7 @@ class FormBuilderSignaturePadState
 
     _controller.onDrawEnd = () async {
       onDrawEnd?.call();
-      requestFocus();
+      focus();
       final val = await _getControllerValue();
       didChange(val);
     };
