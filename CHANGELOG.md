@@ -1,3 +1,15 @@
+## [9.0.0]
+
+### BREAKING CHANGE
+
+* Remove `FormBuilderChipsInput` field
+* Remove `FormBuilderCupertinoDateTimePicker` field
+* Update `flutter_form_builder` to 8.x.x. Take a look breaking changes on [there changelog](https://pub.dev/packages/flutter_form_builder/changelog#800)
+
+### Features
+
+* `FormBuilderColorPickerField`: Add `availableColors` property
+
 ## [8.5.0]
 
 * Remove flutter_chips_input dependency

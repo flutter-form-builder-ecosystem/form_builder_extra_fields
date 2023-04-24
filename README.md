@@ -33,7 +33,6 @@ ___
 The currently supported fields include:
 
 - `FormBuilderColorPicker` - Input for `Color` selection
-- `FormBuilderCupertinoDateTimePicker` - For `Date`, `Time` and `DateTime` input using a Cupertino-style picker
 - `FormBuilderRating` - For selection of a numerical value as a rating
 - `FormBuilderSearchableDropdown` - Field for selecting value(s) from a searchable list
 - `FormBuilderSignaturePad` - Field with drawing pad on which user can doodle
@@ -61,8 +60,7 @@ Each field has a dependency with your own configurations. Take a look on depende
 
 | Field | Dependency |
 |-------|------------|
-|`FormBuilderColorPicker`|[flutter_datetime_picker_bdaya](https://pub.dev/packages/flutter_datetime_picker_bdaya)|
-|`FormBuilderCupertinoDateTimePicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
+|`FormBuilderColorPicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
 |`FormBuilderRating`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
 |`FormBuilderSearchableDropdown`|[dropdown_search](https://pub.dev/packages/dropdown_search)|
 |`FormBuilderSignaturePad`|[signature](https://pub.dev/packages/signature)|
