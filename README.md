@@ -2,7 +2,6 @@
 
 FormBuilder Extra Fields provides common ready-made form input fields for [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package. The package gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
 
-
 [![Pub Version](https://img.shields.io/pub/v/form_builder_extra_fields?logo=flutter&style=for-the-badge)](https://pub.dev/packages/form_builder_extra_fields)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/flutter-form-builder-ecosystem/form_builder_extra_fields/Base?logo=github&style=for-the-badge)](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/actions/workflows/base.yaml)
 [![Codecov](https://img.shields.io/codecov/c/github/flutter-form-builder-ecosystem/form_builder_extra_fields?logo=codecov&style=for-the-badge)](https://codecov.io/gh/flutter-form-builder-ecosystem/form_builder_extra_fields/)
@@ -10,20 +9,20 @@ FormBuilder Extra Fields provides common ready-made form input fields for [flutt
 ___
 
 - [Features](#features)
-- [Inputs](#inpus)
-    - [Parameters](#parameters)
-    - [Dependency parameters](#dependency-parameters)
+- [Inputs](#inputs)
+  - [Parameters](#parameters)
+  - [Dependency parameters](#dependency-parameters)
 - [Use](#use)
-    - [Setup](#setup)
-    - [Basic use](#basic-use)
+  - [Setup](#setup)
+  - [Basic use](#basic-use)
 - [Support](#support)
-    - [Contribute](#contribute)
-    - [Questions and answers](#questions-and-answers)
-    - [Donations](#donations)
+  - [Contribute](#contribute)
+  - [Questions and answers](#questions-and-answers)
+  - [Donations](#donations)
 - [Roadmap](#roadmap)
 - [Ecosystem](#ecosystem)
 - [Thanks to](#thanks-to)
-    - [Contributors](#contributors)
+  - [Contributors](#contributors)
 
 ## Features
 
@@ -33,14 +32,14 @@ ___
 
 The currently supported fields include:
 
-* `FormBuilderChipsInput` - Takes a list of `Chip`s as input and suggests more options on typing
-* `FormBuilderColorPicker` - Input for `Color` selection
-* `FormBuilderCupertinoDateTimePicker` - For `Date`, `Time` and `DateTime` input using a Cupertino-style picker
-* `FormBuilderRating` - For selection of a numerical value as a rating
-* `FormBuilderSearchableDropdown` - Field for selecting value(s) from a searchable list
-* `FormBuilderSignaturePad` - Field with drawing pad on which user can doodle
-* `FormBuilderTouchSpin` - Selection of a number by tapping on a plus or minus icon
-* `FormBuilderTypeAhead` - Auto-completes user input from a list of items
+- `FormBuilderChipsInput` - Takes a list of `Chip`s as input and suggests more options on typing
+- `FormBuilderColorPicker` - Input for `Color` selection
+- `FormBuilderCupertinoDateTimePicker` - For `Date`, `Time` and `DateTime` input using a Cupertino-style picker
+- `FormBuilderRating` - For selection of a numerical value as a rating
+- `FormBuilderSearchableDropdown` - Field for selecting value(s) from a searchable list
+- `FormBuilderSignaturePad` - Field with drawing pad on which user can doodle
+- `FormBuilderTouchSpin` - Selection of a number by tapping on a plus or minus icon
+- `FormBuilderTypeAhead` - Auto-completes user input from a list of items
 
 ### Parameters
 
@@ -60,7 +59,6 @@ The rest of the attributes will be determined by the type of Widget being used.
 ### Dependency parameters
 
 Each field has a dependency with your own configurations. Take a look on dependencies repositories to understand the behaviour and properties:
-
 
 | Field | Dependency |
 |-------|------------|
@@ -102,9 +100,9 @@ For more instructions about `FormBuilder`, see [flutter_form_builder](https://pu
 
 You have some ways to contribute to this packages
 
- - Beginner: Reporting bugs or request new features
- - Intermediate: Implement new features (from issues or not) and created pull requests
- - Advanced: Join to [organization](#ecosystem) like a member and help coding, manage issues, dicuss new features and other things
+- Beginner: Reporting bugs or request new features
+- Intermediate: Implement new features (from issues or not) and created pull requests
+- Advanced: Join to [organization](#ecosystem) like a member and help coding, manage issues, dicuss new features and other things
 
  See [contribution file](https://github.com/flutter-form-builder-ecosystem/.github/blob/main/CONTRIBUTING.md) for more details
 
