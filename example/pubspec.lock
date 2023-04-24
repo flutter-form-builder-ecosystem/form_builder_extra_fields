@@ -102,14 +102,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
-  flutter_datetime_picker_bdaya:
-    dependency: transitive
-    description:
-      name: flutter_datetime_picker_bdaya
-      sha256: "137ac5f6c967c4fa9a029e6d8599ec3b301480b7269b92e6938607f1ab2e8288"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   flutter_form_builder:
     dependency: "direct main"
     description:

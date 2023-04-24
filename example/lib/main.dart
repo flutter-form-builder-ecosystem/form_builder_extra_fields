@@ -93,33 +93,6 @@ class MyHomePageState extends State<MyHomePage> {
                   colorPickerType: ColorPickerType.materialPicker,
                   decoration: const InputDecoration(labelText: 'Color Picker'),
                 ),
-                FormBuilderCupertinoDateTimePicker(
-                  name: 'date_time',
-                  initialValue: DateTime.now(),
-                  inputType: CupertinoDateTimePickerInputType.both,
-                  decoration: const InputDecoration(
-                    labelText: 'Cupertino DateTime Picker',
-                  ),
-                  locale: const Locale.fromSubtags(languageCode: 'en_GB'),
-                ),
-                FormBuilderCupertinoDateTimePicker(
-                  name: 'date',
-                  initialValue: DateTime.now(),
-                  inputType: CupertinoDateTimePickerInputType.date,
-                  decoration: const InputDecoration(
-                    labelText: 'Cupertino DateTime Picker - Date Only',
-                  ),
-                  locale: const Locale.fromSubtags(languageCode: 'en_GB'),
-                ),
-                FormBuilderCupertinoDateTimePicker(
-                  name: 'time',
-                  initialValue: DateTime.now(),
-                  inputType: CupertinoDateTimePickerInputType.time,
-                  decoration: const InputDecoration(
-                    labelText: 'Cupertino DateTime Picker - Time Only',
-                  ),
-                  locale: const Locale.fromSubtags(languageCode: 'en_GB'),
-                ),
                 FormBuilderTypeAhead<String>(
                   decoration: const InputDecoration(
                     labelText: 'TypeAhead (Autocomplete TextField)',
