@@ -65,6 +65,7 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
   final EdgeInsets scrollPadding;
   final bool enableInteractiveSelection;
   final InputCounterWidgetBuilder? buildCounter;
+  final List<Color> availableColors;
 
   final Widget Function(Color?)? colorPreviewBuilder;
 
@@ -112,6 +113,7 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
     this.buildCounter,
     this.controller,
     this.colorPreviewBuilder,
+    this.availableColors = const [],
   }) : super(
           key: key,
           initialValue: initialValue,
@@ -261,6 +263,7 @@ class FormBuilderColorPickerFieldState
         return BlockPicker(
           pickerColor: value ?? Colors.transparent,
           onColorChanged: _colorChanged,
+          availableColors: widget.availableColors,
         );
       default:
         throw 'Unknown ColorPickerType';
