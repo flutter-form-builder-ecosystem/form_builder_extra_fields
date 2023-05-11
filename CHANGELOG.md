@@ -1,3 +1,10 @@
+## [10.0.0-dev.1]
+
+### BREAKING CHANGE
+
+- Update constraints to Flutter 3.10
+- Update intl to 0.18
+
 ## [9.0.0]
 
 ### BREAKING CHANGE
