@@ -5,7 +5,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 typedef SelectionToTextTransformer<T> = String Function(T suggestion);
 
 /// Text field that auto-completes user input from a list of items
-class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
+class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
   /// Called with the search pattern to get the search suggestions.
   ///
   /// This callback must not be null. It is be called by the TypeAhead widget
@@ -261,21 +261,20 @@ class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
 
   /// Creates text field that auto-completes user input from a list of items
   FormBuilderTypeAhead({
-    Key? key,
-    //From Super
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    bool enabled = true,
-    FocusNode? focusNode,
-    FormFieldSetter<T>? onSaved,
-    FormFieldValidator<T>? validator,
-    InputDecoration decoration = const InputDecoration(),
-    required String name,
+    super.key,
+    super.autovalidateMode,
+    super.enabled,
+    super.focusNode,
+    super.onSaved,
+    super.validator,
+    super.decoration,
+    super.initialValue,
+    super.onChanged,
+    super.valueTransformer,
+    super.onReset,
+    required super.name,
     required this.itemBuilder,
     required this.suggestionsCallback,
-    T? initialValue,
-    ValueChanged<T?>? onChanged,
-    ValueTransformer<T?>? valueTransformer,
-    VoidCallback? onReset,
     this.animationDuration = const Duration(milliseconds: 500),
     this.animationStart = 0.25,
     this.autoFlipDirection = false,
@@ -303,18 +302,6 @@ class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
     this.transitionBuilder,
   })  : assert(T == String || selectionToTextTransformer != null),
         super(
-          key: key,
-          initialValue: initialValue,
-          name: name,
-          validator: validator,
-          valueTransformer: valueTransformer,
-          onChanged: onChanged,
-          autovalidateMode: autovalidateMode,
-          onSaved: onSaved,
-          enabled: enabled,
-          onReset: onReset,
-          decoration: decoration,
-          focusNode: focusNode,
           builder: (FormFieldState<T?> field) {
             final state = field as FormBuilderTypeAheadState<T>;
             final theme = Theme.of(state.context);
@@ -370,7 +357,7 @@ class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
 }
 
 class FormBuilderTypeAheadState<T>
-    extends FormBuilderFieldState<FormBuilderTypeAhead<T>, T> {
+    extends FormBuilderFieldDecorationState<FormBuilderTypeAhead<T>, T> {
   late TextEditingController _typeAheadController;
 
   @override
@@ -378,21 +365,7 @@ class FormBuilderTypeAheadState<T>
     super.initState();
     _typeAheadController = widget.controller ??
         TextEditingController(text: _getTextString(initialValue));
-    // _typeAheadController.addListener(_handleControllerChanged);
   }
-
-  // void _handleControllerChanged() {
-  // Suppress changes that originated from within this class.
-  //
-  // In the case where a controller has been passed in to this widget, we
-  // register this change listener. In these cases, we'll also receive change
-  // notifications for changes originating from within this class -- for
-  // example, the reset() method. In such cases, the FormField value will
-  // already have been set.
-  //   if (_typeAheadController.text != value) {
-  //     didChange(_typeAheadController.text as T);
-  //   }
-  // }
 
   @override
   void didChange(T? value) {

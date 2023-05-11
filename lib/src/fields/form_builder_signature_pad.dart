@@ -6,7 +6,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:signature/signature.dart';
 
 /// Field with drawing pad on which user can doodle
-class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
+class FormBuilderSignaturePad extends FormBuilderFieldDecoration<Uint8List> {
   /// Controls the value of the signature pad.
   ///
   /// If null, this widget will create its own [SignatureController].
@@ -37,19 +37,18 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
 
   /// Creates field with drawing pad on which user can doodle
   FormBuilderSignaturePad({
-    Key? key,
-    //From Super
-    required String name,
-    FormFieldValidator<Uint8List>? validator,
-    Uint8List? initialValue,
-    InputDecoration decoration = const InputDecoration(),
-    ValueChanged<Uint8List?>? onChanged,
-    ValueTransformer<Uint8List?>? valueTransformer,
-    bool enabled = true,
-    FormFieldSetter<Uint8List>? onSaved,
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    VoidCallback? onReset,
-    FocusNode? focusNode,
+    super.key,
+    required super.name,
+    super.validator,
+    super.initialValue,
+    super.decoration,
+    super.onChanged,
+    super.valueTransformer,
+    super.enabled,
+    super.onSaved,
+    super.autovalidateMode,
+    super.onReset,
+    super.focusNode,
     this.backgroundColor = Colors.transparent,
     this.clearButtonText,
     this.width,
@@ -57,18 +56,6 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
     this.controller,
     this.border,
   }) : super(
-          autovalidateMode: autovalidateMode,
-          decoration: decoration,
-          enabled: enabled,
-          focusNode: focusNode,
-          initialValue: initialValue,
-          key: key,
-          name: name,
-          onChanged: onChanged,
-          onReset: onReset,
-          onSaved: onSaved,
-          validator: validator,
-          valueTransformer: valueTransformer,
           builder: (FormFieldState<Uint8List?> field) {
             final state = field as FormBuilderSignaturePadState;
             final theme = Theme.of(state.context);
@@ -85,12 +72,9 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
                     width: width,
                     decoration: BoxDecoration(
                       border: border,
-                      image:
-                          (null != initialValue && initialValue == state.value)
-                              ? DecorationImage(
-                                  image: MemoryImage(state.value!),
-                                )
-                              : null,
+                      image: null != initialValue && initialValue == state.value
+                          ? DecorationImage(image: MemoryImage(state.value!))
+                          : null,
                     ),
                     child: state.enabled
                         ? GestureDetector(
@@ -133,8 +117,8 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
   FormBuilderSignaturePadState createState() => FormBuilderSignaturePadState();
 }
 
-class FormBuilderSignaturePadState
-    extends FormBuilderFieldState<FormBuilderSignaturePad, Uint8List> {
+class FormBuilderSignaturePadState extends FormBuilderFieldDecorationState<
+    FormBuilderSignaturePad, Uint8List> {
   late SignatureController _controller;
 
   SignatureController get effectiveController => _controller;

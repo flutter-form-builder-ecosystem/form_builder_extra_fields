@@ -30,7 +30,7 @@ extension on Color {
 enum ColorPickerType { colorPicker, materialPicker, blockPicker }
 
 /// Creates a field for `Color` input selection
-class FormBuilderColorPickerField extends FormBuilderField<Color> {
+class FormBuilderColorPickerField extends FormBuilderFieldDecoration<Color> {
   //TODO: Add documentation
   final TextEditingController? controller;
   final ColorPickerType colorPickerType;
@@ -70,19 +70,18 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
   final Widget Function(Color?)? colorPreviewBuilder;
 
   FormBuilderColorPickerField({
-    Key? key,
-    //From Super
-    required String name,
-    FormFieldValidator<Color>? validator,
-    Color? initialValue,
-    InputDecoration decoration = const InputDecoration(),
-    ValueChanged<Color?>? onChanged,
-    ValueTransformer<Color?>? valueTransformer,
-    bool enabled = true,
-    FormFieldSetter<Color>? onSaved,
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    VoidCallback? onReset,
-    FocusNode? focusNode,
+    super.key,
+    required super.name,
+    super.validator,
+    super.initialValue,
+    super.decoration,
+    super.onChanged,
+    super.valueTransformer,
+    super.enabled,
+    super.onSaved,
+    super.autovalidateMode,
+    super.onReset,
+    super.focusNode,
     bool readOnly = false,
     this.colorPickerType = ColorPickerType.colorPicker,
     this.textCapitalization = TextCapitalization.none,
@@ -115,18 +114,6 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
     this.colorPreviewBuilder,
     this.availableColors = const [],
   }) : super(
-          key: key,
-          initialValue: initialValue,
-          name: name,
-          validator: validator,
-          valueTransformer: valueTransformer,
-          onChanged: onChanged,
-          autovalidateMode: autovalidateMode,
-          onSaved: onSaved,
-          enabled: enabled,
-          onReset: onReset,
-          decoration: decoration,
-          focusNode: focusNode,
           builder: (FormFieldState<Color?> field) {
             final state = field as FormBuilderColorPickerFieldState;
             return TextField(
@@ -183,8 +170,8 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
       FormBuilderColorPickerFieldState();
 }
 
-class FormBuilderColorPickerFieldState
-    extends FormBuilderFieldState<FormBuilderColorPickerField, Color> {
+class FormBuilderColorPickerFieldState extends FormBuilderFieldDecorationState<
+    FormBuilderColorPickerField, Color> {
   late TextEditingController _effectiveController;
 
   String? get valueString => value?.toHex();

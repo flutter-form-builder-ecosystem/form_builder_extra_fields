@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// Field for selecting value(s) from a searchable list
-class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
+class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
   ///offline items list
   final List<T> items;
 
@@ -89,18 +89,18 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
 
   /// Creates field for selecting value(s) from a searchable list
   FormBuilderSearchableDropdown({
-    Key? key,
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    bool enabled = true,
-    FocusNode? focusNode,
-    FormFieldSetter<T>? onSaved,
-    FormFieldValidator<T>? validator,
-    InputDecoration decoration = const InputDecoration(),
-    required String name,
-    T? initialValue,
-    ValueChanged<T?>? onChanged,
-    ValueTransformer<T?>? valueTransformer,
-    VoidCallback? onReset,
+    super.key,
+    super.autovalidateMode,
+    super.enabled,
+    super.focusNode,
+    super.onSaved,
+    super.validator,
+    super.decoration,
+    required super.name,
+    super.initialValue,
+    super.onChanged,
+    super.valueTransformer,
+    super.onReset,
     this.asyncItems,
     this.autoValidateMode,
     this.compareFn,
@@ -134,18 +134,6 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
         popupValidationMultiSelectionWidget = null,
         popupCustomMultiSelectionWidget = null,
         super(
-          key: key,
-          initialValue: initialValue,
-          name: name,
-          validator: validator,
-          valueTransformer: valueTransformer,
-          onChanged: onChanged,
-          autovalidateMode: autovalidateMode,
-          onSaved: onSaved,
-          enabled: enabled,
-          onReset: onReset,
-          decoration: decoration,
-          focusNode: focusNode,
           builder: (FormFieldState<T?> field) {
             final state = field as FormBuilderSearchableDropdownState<T>;
             return DropdownSearch<T>(
@@ -182,4 +170,5 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
 }
 
 class FormBuilderSearchableDropdownState<T>
-    extends FormBuilderFieldState<FormBuilderSearchableDropdown<T>, T> {}
+    extends FormBuilderFieldDecorationState<FormBuilderSearchableDropdown<T>,
+        T> {}

@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../widgets/touch_spin/touch_spin.dart';
 
 /// Field for selection of a number by tapping on an add or subtract icon
-class FormBuilderTouchSpin extends FormBuilderField<num> {
+class FormBuilderTouchSpin extends FormBuilderFieldDecoration<num> {
   /// Value to increment or decrement by
   final num step;
 
@@ -45,19 +45,18 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
 
   /// Creates field for selection of a number by tapping on an add or subtract icon
   FormBuilderTouchSpin({
-    Key? key,
-    //From Super
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    bool enabled = true,
-    FocusNode? focusNode,
-    FormFieldSetter<num>? onSaved,
-    FormFieldValidator<num>? validator,
-    InputDecoration decoration = const InputDecoration(),
-    num? initialValue,
-    required String name,
-    ValueChanged<num?>? onChanged,
-    ValueTransformer<num?>? valueTransformer,
-    VoidCallback? onReset,
+    super.key,
+    super.autovalidateMode,
+    super.enabled,
+    super.focusNode,
+    super.onSaved,
+    super.validator,
+    super.decoration,
+    super.initialValue,
+    required super.name,
+    super.onChanged,
+    super.valueTransformer,
+    super.onReset,
     this.addIcon = const Icon(Icons.add),
     this.displayFormat,
     this.iconActiveColor,
@@ -70,18 +69,6 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
     this.subtractIcon = const Icon(Icons.remove),
     this.textStyle = const TextStyle(fontSize: 24),
   }) : super(
-          autovalidateMode: autovalidateMode,
-          decoration: decoration,
-          enabled: enabled,
-          focusNode: focusNode,
-          initialValue: initialValue,
-          key: key,
-          name: name,
-          onChanged: onChanged,
-          onReset: onReset,
-          onSaved: onSaved,
-          validator: validator,
-          valueTransformer: valueTransformer,
           builder: (FormFieldState<num?> field) {
             final state = field as FormBuilderTouchSpinState;
             final theme = Theme.of(state.context);
@@ -118,4 +105,4 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
 }
 
 class FormBuilderTouchSpinState
-    extends FormBuilderFieldState<FormBuilderTouchSpin, num> {}
+    extends FormBuilderFieldDecorationState<FormBuilderTouchSpin, num> {}

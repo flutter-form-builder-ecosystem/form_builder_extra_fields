@@ -3,7 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 /// Field for selection of a numerical value using a star* rating widget
-class FormBuilderRatingBar extends FormBuilderField<double> {
+class FormBuilderRatingBar extends FormBuilderFieldDecoration<double> {
   /// Defines color for glow.
   ///
   /// Default is [ThemeData.colorScheme.secondary].
@@ -95,19 +95,18 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
   final RatingWidget? ratingWidget;
 
   FormBuilderRatingBar({
-    Key? key,
-    //From Super
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
-    bool enabled = true,
-    double? initialValue,
-    FocusNode? focusNode,
-    FormFieldSetter<double>? onSaved,
-    FormFieldValidator<double>? validator,
-    InputDecoration decoration = const InputDecoration(),
-    required String name,
-    ValueChanged<double?>? onChanged,
-    ValueTransformer<double?>? valueTransformer,
-    VoidCallback? onReset,
+    super.key,
+    super.autovalidateMode,
+    super.enabled,
+    super.initialValue,
+    super.focusNode,
+    super.onSaved,
+    super.validator,
+    super.decoration,
+    required super.name,
+    super.onChanged,
+    super.valueTransformer,
+    super.onReset,
     this.allowHalfRating = false,
     this.direction = Axis.horizontal,
     this.glow = true,
@@ -126,18 +125,6 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
     this.updateOnDrag = false,
     this.wrapAlignment = WrapAlignment.start,
   }) : super(
-          key: key,
-          initialValue: initialValue,
-          name: name,
-          validator: validator,
-          valueTransformer: valueTransformer,
-          onChanged: onChanged,
-          autovalidateMode: autovalidateMode,
-          onSaved: onSaved,
-          enabled: enabled,
-          onReset: onReset,
-          decoration: decoration,
-          focusNode: focusNode,
           builder: (FormFieldState<double?> field) {
             final state = field as FormBuilderRatingBarState;
             final widget = state.widget;
@@ -182,4 +169,4 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
 }
 
 class FormBuilderRatingBarState
-    extends FormBuilderFieldState<FormBuilderRatingBar, double> {}
+    extends FormBuilderFieldDecorationState<FormBuilderRatingBar, double> {}
