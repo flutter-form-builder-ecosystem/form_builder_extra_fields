@@ -30,7 +30,7 @@ extension on Color {
 enum ColorPickerType { colorPicker, materialPicker, blockPicker }
 
 /// Creates a field for `Color` input selection
-class FormBuilderColorPickerField extends FormBuilderField<Color> {
+class FormBuilderColorPickerField extends FormBuilderFieldDecoration<Color> {
   //TODO: Add documentation
   final TextEditingController? controller;
   final ColorPickerType colorPickerType;
@@ -183,8 +183,8 @@ class FormBuilderColorPickerField extends FormBuilderField<Color> {
       FormBuilderColorPickerFieldState();
 }
 
-class FormBuilderColorPickerFieldState
-    extends FormBuilderFieldState<FormBuilderColorPickerField, Color> {
+class FormBuilderColorPickerFieldState extends FormBuilderFieldDecorationState<
+    FormBuilderColorPickerField, Color> {
   late TextEditingController _effectiveController;
 
   String? get valueString => value?.toHex();

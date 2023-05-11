@@ -14,11 +14,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_form_builder: ^8.0.0
+  flutter_form_builder: ^9.0.0-dev.3
   flutter_colorpicker: ^1.0.3
   dropdown_search: ^5.0.6
   signature: ^5.3.2
-  intl: ^0.17.0
+  intl: ^0.18.0
   flutter_typeahead: ^4.3.7
   flutter_rating_bar: ^4.0.1
 

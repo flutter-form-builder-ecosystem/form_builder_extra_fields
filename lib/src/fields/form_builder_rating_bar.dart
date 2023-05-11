@@ -3,7 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 /// Field for selection of a numerical value using a star* rating widget
-class FormBuilderRatingBar extends FormBuilderField<double> {
+class FormBuilderRatingBar extends FormBuilderFieldDecoration<double> {
   /// Defines color for glow.
   ///
   /// Default is [ThemeData.colorScheme.secondary].
@@ -182,4 +182,4 @@ class FormBuilderRatingBar extends FormBuilderField<double> {
 }
 
 class FormBuilderRatingBarState
-    extends FormBuilderFieldState<FormBuilderRatingBar, double> {}
+    extends FormBuilderFieldDecorationState<FormBuilderRatingBar, double> {}

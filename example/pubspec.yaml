@@ -11,15 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_form_builder: ^8.0.0
+  flutter_form_builder: ^9.0.0-dev.3
   flutter_localizations:
     sdk: flutter
   form_builder_extra_fields:
     path: ../
-  form_builder_validators: ^8.5.0
+  form_builder_validators: ^9.0.0-dev.2
 
 dependency_overrides:
-  intl: 0.17.0
+  intl: 0.18.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1

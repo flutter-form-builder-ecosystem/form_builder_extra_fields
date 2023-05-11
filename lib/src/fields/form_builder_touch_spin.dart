@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../widgets/touch_spin/touch_spin.dart';
 
 /// Field for selection of a number by tapping on an add or subtract icon
-class FormBuilderTouchSpin extends FormBuilderField<num> {
+class FormBuilderTouchSpin extends FormBuilderFieldDecoration<num> {
   /// Value to increment or decrement by
   final num step;
 
@@ -118,4 +118,4 @@ class FormBuilderTouchSpin extends FormBuilderField<num> {
 }
 
 class FormBuilderTouchSpinState
-    extends FormBuilderFieldState<FormBuilderTouchSpin, num> {}
+    extends FormBuilderFieldDecorationState<FormBuilderTouchSpin, num> {}

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// Field for selecting value(s) from a searchable list
-class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
+class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
   ///offline items list
   final List<T> items;
 
@@ -182,4 +182,5 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderField<T> {
 }
 
 class FormBuilderSearchableDropdownState<T>
-    extends FormBuilderFieldState<FormBuilderSearchableDropdown<T>, T> {}
+    extends FormBuilderFieldDecorationState<FormBuilderSearchableDropdown<T>,
+        T> {}

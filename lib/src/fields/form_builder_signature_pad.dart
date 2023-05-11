@@ -6,7 +6,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:signature/signature.dart';
 
 /// Field with drawing pad on which user can doodle
-class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
+class FormBuilderSignaturePad extends FormBuilderFieldDecoration<Uint8List> {
   /// Controls the value of the signature pad.
   ///
   /// If null, this widget will create its own [SignatureController].
@@ -133,8 +133,8 @@ class FormBuilderSignaturePad extends FormBuilderField<Uint8List> {
   FormBuilderSignaturePadState createState() => FormBuilderSignaturePadState();
 }
 
-class FormBuilderSignaturePadState
-    extends FormBuilderFieldState<FormBuilderSignaturePad, Uint8List> {
+class FormBuilderSignaturePadState extends FormBuilderFieldDecorationState<
+    FormBuilderSignaturePad, Uint8List> {
   late SignatureController _controller;
 
   SignatureController get effectiveController => _controller;

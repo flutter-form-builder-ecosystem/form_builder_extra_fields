@@ -5,7 +5,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 typedef SelectionToTextTransformer<T> = String Function(T suggestion);
 
 /// Text field that auto-completes user input from a list of items
-class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
+class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
   /// Called with the search pattern to get the search suggestions.
   ///
   /// This callback must not be null. It is be called by the TypeAhead widget
@@ -370,7 +370,7 @@ class FormBuilderTypeAhead<T> extends FormBuilderField<T> {
 }
 
 class FormBuilderTypeAheadState<T>
-    extends FormBuilderFieldState<FormBuilderTypeAhead<T>, T> {
+    extends FormBuilderFieldDecorationState<FormBuilderTypeAhead<T>, T> {
   late TextEditingController _typeAheadController;
 
   @override
