@@ -259,6 +259,52 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
 
   final ScrollController? scrollController;
 
+  final IndexedWidgetBuilder? itemSeparatorBuilder;
+
+  /// By default, we render the suggestions in a ListView, using
+  /// the `itemBuilder` to construct each element of the list.  Specify
+  /// your own `layoutArchitecture` if you want to be responsible
+  /// for layinng out the widgets using some other system (like a grid).
+  final LayoutArchitecture? layoutArchitecture;
+
+  /// Used to overcome [Flutter issue 98507](https://github.com/flutter/flutter/issues/98507)
+  /// Most commonly experienced when placing the [TypeAheadFormField] on a google map in Flutter Web.
+  final bool intercepting;
+
+  /// If set to false, suggestion list will not be reversed according to the
+  /// [autoFlipDirection] property.
+  ///
+  /// Defaults to true.
+  final bool autoFlipListDirection;
+
+  /// Minimum height below [autoFlipDirection] is triggered
+  ///
+  /// Defaults to 64.0.
+  final double autoFlipMinHeight;
+
+  /// The minimum number of characters which must be entered before
+  /// [suggestionsCallback] is triggered.
+  ///
+  /// Defaults to 0.
+  final int minCharsForSuggestions;
+
+  /// If set to true and if the user scrolls through the suggestion list, hide the keyboard automatically.
+  /// If set to false, the keyboard remains visible.
+  /// Throws an exception, if hideKeyboardOnDrag and hideSuggestionsOnKeyboardHide are both set to true as
+  /// they are mutual exclusive.
+  ///
+  /// Defaults to false
+  final bool hideKeyboardOnDrag;
+
+  /// Allows a bypass of a problem on Flutter 3.7+ with the accessibility through Overlay
+  /// that prevents flutter_typeahead to register a click on the list of suggestions properly.
+  ///
+  /// Defaults to false
+  final bool ignoreAccessibleNavigation;
+
+  // Adds a callback for the suggestion box opening or closing
+  final void Function(bool)? onSuggestionsBoxToggle;
+
   /// Creates text field that auto-completes user input from a list of items
   FormBuilderTypeAhead({
     super.key,
@@ -300,6 +346,15 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
     this.suggestionsBoxVerticalOffset = 5.0,
     this.textFieldConfiguration = const TextFieldConfiguration(),
     this.transitionBuilder,
+    this.autoFlipListDirection = true,
+    this.autoFlipMinHeight = 64.0,
+    this.hideKeyboardOnDrag = false,
+    this.ignoreAccessibleNavigation = false,
+    this.intercepting = false,
+    this.itemSeparatorBuilder,
+    this.layoutArchitecture,
+    this.minCharsForSuggestions = 0,
+    this.onSuggestionsBoxToggle,
   })  : assert(T == String || selectionToTextTransformer != null),
         super(
           builder: (FormFieldState<T?> field) {
@@ -318,6 +373,15 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
                 focusNode: state.effectiveFocusNode,
                 decoration: state.decoration,
               ),
+              autoFlipListDirection: autoFlipListDirection,
+              autoFlipMinHeight: autoFlipMinHeight,
+              hideKeyboardOnDrag: hideKeyboardOnDrag,
+              ignoreAccessibleNavigation: ignoreAccessibleNavigation,
+              intercepting: intercepting,
+              itemSeparatorBuilder: itemSeparatorBuilder,
+              layoutArchitecture: layoutArchitecture,
+              minCharsForSuggestions: minCharsForSuggestions,
+              onSuggestionsBoxToggle: onSuggestionsBoxToggle,
               // TODO HACK to satisfy strictness
               suggestionsCallback: suggestionsCallback,
               itemBuilder: itemBuilder,
