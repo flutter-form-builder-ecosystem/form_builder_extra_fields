@@ -1,3 +1,9 @@
+## [10.1.0]
+
+* `FormBuilderTypeAhead`: Add new properties
+* Update dependencies
+* Built with Flutter 3.13
+
 ## [10.0.0]
 
 ### BREAKING CHANGE

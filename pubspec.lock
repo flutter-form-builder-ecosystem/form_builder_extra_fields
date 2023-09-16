@@ -106,10 +106,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_form_builder
-      sha256: e828c11156d75fc668da1d8e7ddc2311ea8368f023fd28a7c7c126c8b903c5d6
+      sha256: "8973beed34b6d951d36bf688b52e9e3040b47b763c35c320bd6f4c2f6b13f3a2"
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.0"
+    version: "9.1.1"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -308,10 +308,10 @@ packages:
     dependency: "direct main"
     description:
       name: signature
-      sha256: "2c00ae3ca66877527ae872b45413a76e15203ddd752c81e277435399250b28c2"
+      sha256: d95143b8e310b395ea0be59a46bb69fa24106cb6ec79815fc56fd320268e24e6
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.2"
+    version: "5.4.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -422,5 +422,5 @@ packages:
     source: hosted
     version: "6.3.0"
 sdks:
-  dart: ">=3.0.0 <4.0.0"
+  dart: ">=3.1.0-185.0.dev <4.0.0"
   flutter: ">=3.10.0"

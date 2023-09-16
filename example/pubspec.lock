@@ -106,10 +106,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_form_builder
-      sha256: "9b098f6a5f8a6381016a5fe9cdccc900683917d1fb930e1c6c6c051ca0f01f08"
+      sha256: "8973beed34b6d951d36bf688b52e9e3040b47b763c35c320bd6f4c2f6b13f3a2"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "9.1.1"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -162,10 +162,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.3"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -196,10 +196,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_typeahead
-      sha256: "721610b3d61814efa13fb5f720a6781bc123cd51b7e01f5a45d7c92124376644"
+      sha256: f3a5f79d9a056e5108452dbec31d12bbd7f6d25e9097bf0f956e3f8d024e1747
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.8"
+    version: "4.7.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -216,10 +216,10 @@ packages:
     dependency: "direct main"
     description:
       name: form_builder_validators
-      sha256: e04998b1597d76a51da7f009ed3b2f12d4173f13e146e8744fd2453e8595a2c9
+      sha256: "19aa5282b7cede82d0025ab031a98d0554b84aa2ba40f12013471a3b3e22bf02"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "9.1.0"
   image:
     dependency: transitive
     description:
@@ -308,6 +308,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  pointer_interceptor:
+    dependency: transitive
+    description:
+      name: pointer_interceptor
+      sha256: "7626e034489820fd599380d2bb4d3f4a0a5e3529370b62bfce53ab736b91adb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.3+6"
   pointycastle:
     dependency: transitive
     description:
@@ -320,10 +328,10 @@ packages:
     dependency: transitive
     description:
       name: signature
-      sha256: "2c00ae3ca66877527ae872b45413a76e15203ddd752c81e277435399250b28c2"
+      sha256: d95143b8e310b395ea0be59a46bb69fa24106cb6ec79815fc56fd320268e24e6
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.2"
+    version: "5.4.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -434,5 +442,5 @@ packages:
     source: hosted
     version: "6.3.0"
 sdks:
-  dart: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  dart: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"
