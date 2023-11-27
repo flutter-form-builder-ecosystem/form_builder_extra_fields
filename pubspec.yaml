@@ -19,7 +19,7 @@ dependencies:
   dropdown_search: ^5.0.6
   signature: ^5.4.0
   intl: ^0.18.1
-  flutter_typeahead: ^4.7.0
+  flutter_typeahead: ">=4.7.0 <6.0.0"
   flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
