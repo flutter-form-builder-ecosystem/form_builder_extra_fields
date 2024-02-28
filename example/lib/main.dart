@@ -103,7 +103,6 @@ class MyHomePageState extends State<MyHomePage> {
                   itemBuilder: (context, country) {
                     return ListTile(title: Text(country));
                   },
-                  controller: TextEditingController(text: ''),
                   initialValue: 'Uganda',
                   suggestionsCallback: (query) {
                     if (query.isNotEmpty) {
