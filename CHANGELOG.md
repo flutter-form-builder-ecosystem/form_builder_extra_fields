@@ -1,3 +1,15 @@
+## [10.2.0]
+
+* Update dependencies:
+  * `intl` from ^0.18.1 to ^0.19.0
+  * `dart sdk` from >=3.0.0 <4.0.0 to >=3.4.0 <4.0.0
+  * `flutter` from >=3.10.0 to >=3.22.0
+  * `form_builder_validators` from ^9.1.0 to ^10.0.1
+  * `flutter_form_builder` from ^9.1.1 to ^9.3.0
+  * `flutter_lints` from ^2.0.3 to ^4.0.0
+* Resolved deprecation warning. using super.key instead of super(key: key) https://dart.dev/tools/linter-rules/use_super_parameters
+* Migrate to applying Gradle Plugins with the declarative plugins block: https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply 
+
 ## [10.1.0]
 
 * `FormBuilderTypeAhead`: Add new properties

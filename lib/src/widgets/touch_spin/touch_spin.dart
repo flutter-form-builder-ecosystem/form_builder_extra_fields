@@ -18,7 +18,7 @@ class TouchSpin extends StatefulWidget {
   final bool enabled;
 
   const TouchSpin({
-    Key? key,
+    super.key,
     this.value = 1.0,
     this.onChanged,
     this.min = 1.0,
@@ -33,7 +33,7 @@ class TouchSpin extends StatefulWidget {
     this.iconActiveColor,
     this.iconDisabledColor,
     this.enabled = true,
-  }) : super(key: key);
+  });
 
   @override
   TouchSpinState createState() => TouchSpinState();
