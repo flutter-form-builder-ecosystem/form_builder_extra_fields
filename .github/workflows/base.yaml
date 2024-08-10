@@ -70,30 +70,8 @@ jobs:
           flutter build web
 
   deployment:
-    if: ${{ github.ref_type == 'tag' }}
-    needs: build
-    name: Deploy package
     permissions:
       id-token: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1 # Use shallow clone for faster checkout
-      - uses: dart-lang/setup-dart@v1
-
-      - name: Get Flutter version by FVM
-        uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-        with:
-          path: ".fvmrc"
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
-          architecture: x64
-          cache: true
-      - name: Publish package
-        run: dart pub publish -v -f
+    uses: flutter-form-builder-ecosystem/.github/.github/workflows/deployment.yaml@main
+    if: ${{ github.ref_type == 'tag' }}
+    needs: build
