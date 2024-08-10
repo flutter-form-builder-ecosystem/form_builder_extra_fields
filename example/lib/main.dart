@@ -152,8 +152,7 @@ class MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: MaterialButton(
-                        color: Theme.of(context).colorScheme.secondary,
+                      child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState?.saveAndValidate() ??
                               false) {
@@ -163,10 +162,7 @@ class MyHomePageState extends State<MyHomePage> {
                             debugPrint('validation failed');
                           }
                         },
-                        child: const Text(
-                          'Submit',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        child: const Text('Submit'),
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -176,11 +172,7 @@ class MyHomePageState extends State<MyHomePage> {
                           _formKey.currentState?.reset();
                         },
                         // color: Theme.of(context).colorScheme.secondary,
-                        child: Text(
-                          'Reset',
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.secondary),
-                        ),
+                        child: const Text('Reset'),
                       ),
                     ),
                   ],
