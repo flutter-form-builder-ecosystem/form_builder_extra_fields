@@ -1,4 +1,16 @@
-## [10.2.0]
+## 11.0.0
+
+### BREAKING CHANGE
+
+* `FormBuilderTypeAhead`: Update to use `flutter_typeahead` 5.x.x. Take a look how migrate on their [readme](https://pub.dev/packages/flutter_typeahead#from-4x-to-5x)
+
+### Features
+
+* Update android settings on example
+* Set minimal Flutter version to 3.24.0
+* Set minimal Dart version to 3.5.0
+
+## 10.2.0
 
 * Update dependencies:
   * `intl` from ^0.18.1 to ^0.19.0
@@ -10,53 +22,53 @@
 * Resolved deprecation warning. using super.key instead of super(key: key) https://dart.dev/tools/linter-rules/use_super_parameters
 * Migrate to applying Gradle Plugins with the declarative plugins block: https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply 
 
-## [10.1.0]
+## 10.1.0
 
 * `FormBuilderTypeAhead`: Add new properties
 * Update dependencies
 * Built with Flutter 3.13
 
-## [10.0.0]
+## 10.0.0
 
 ### BREAKING CHANGE
 
 * Update constraints to Dart 3
 * Update constraints to Flutter 3.10
-* Update `flutter_form_builder` to 9.x.x. Take a look breaking changes on [there changelog](https://pub.dev/packages/flutter_form_builder/changelog#900)
+* Update `flutter_form_builder` to 9.x.x. Take a look breaking changes on there changelog
 
-## [10.0.0-dev.2]
+## 10.0.0-dev.2
 
 ### BREAKING CHANGE
 
 * Update constraints to Dart 3
 
-## [10.0.0-dev.1]
+## 10.0.0-dev.1
 
 ### BREAKING CHANGE
 
 * Update constraints to Flutter 3.10
 * Update intl to 0.18
 
-## [9.0.0]
+## 9.0.0
 
 ### BREAKING CHANGE
 
 * Remove `FormBuilderChipsInput` field
 * Remove `FormBuilderCupertinoDateTimePicker` field
-* Update `flutter_form_builder` to 8.x.x. Take a look breaking changes on [there changelog](https://pub.dev/packages/flutter_form_builder/changelog#800)
+* Update `flutter_form_builder` to 8.x.x. Take a look breaking changes on there changelog
 
 ### Features
 
 * `FormBuilderColorPickerField`: Add `availableColors` property
 
-## [8.5.0]
+## 8.5.0
 
 * Remove flutter_chips_input dependency
 * Remove touch_input dependency
 * Update dependencies
 * Built with Flutter 3.7
 
-## [8.4.0] - 28-Oct-2022
+## 8.4.0
 
 * Set by default flex loose to `FormBuilderSearchableDropdown`
 * Set show search field by default
@@ -66,63 +78,63 @@
   * `dropdown_search` from 5.0.2 to 5.0.3
 * Performance improvement on FormBuilderSignaturePad on Web
 
-## [8.3.0] - 27-Jul-2022
+## 8.3.0
 
 * Apply license BSD-3-clause
 * Update dependency dropdown_search from 4.0.1 to 5.0.2
 * Refactor readme 
 
-## [8.2.0] - 12-Jul-2022
+## 8.2.0
 
 * Moved repository
 
-## [8.1.0] - 18-May-2022
+## 8.1.0
 
 * Bump up `dropdown_search` package version
 * Export the whole `dropdown_search` package
 
-## [8.0.1] - 17-May-2022
+## 8.0.1
 
 * Add missing attributes for `FormBuilderSearchableDropdown`
 
-## [8.0.0] - 16-May-2022
+## 8.0.0
 
 * Flutter 3 compatibility
 
-## [7.1.0] - 31-Jan-2022
+## 7.1.0
 
 * Use `flutter_datetime_picker_bdaya` instead of the unmaintained `flutter_datetime_picker`
 * TypeAhead onReset uses `valueTransformer`
 * Export the class `TextFieldProps` - prevents importing from transitive dependency `dropdown_search`
 
-## [7.0.0] - 27-Oct-2021
+## 7.0.0
 
 * `flutter_form_builder` ^7.0.0 compatibility
 * Upgraded packages
 
-## [7.0.0-alpha.6] - 10-Sep-2021
+## 7.0.0-alpha.6
 
 * Upgraded `flutter_colorpicker` dependency - comes with improvements to `FormBuilderColorPicker` field
 * Upgraded `dropdown_search` dependency - comes with improvements to `FormBuilderDropdownSearch` field
 * **Breaking Changes**: comes with breaking  changes in `FormBuilderColorPicker` modes
 
-## [7.0.0-alpha.5] - 02-Sep-2021
+## 7.0.0-alpha.5
 
 * Upgrade form_builder to v7.0.0-alpha.3
 
-## [7.0.0-alpha.4] - 25-May-2021
+## 7.0.0-alpha.4
 
 * Use null-safe version of `flutter_chips_input`
 * Rename `InputType` to `CupertinoDateTimePickerInputType` - avoids name clash with `form_builder_fields`
 
-## [7.0.0-alpha.3] - 17-May-2021
+## 7.0.0-alpha.3
 
 * Replaced `rating_bar` packge with a popular, better maintained and null-safe `flutter_rating_bar`
 
-## [7.0.0-alpha.2] - 17-May-2021
+## 7.0.0-alpha.2
 
 * Improvements to package documentation and example
 
-## [7.0.0-alpha.1] - 16-May-2021
+## 7.0.0-alpha.1
 
 * Split into own package from `flutter_form_builder`
