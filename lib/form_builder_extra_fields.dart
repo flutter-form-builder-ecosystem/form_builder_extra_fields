@@ -1,5 +1,3 @@
-library form_builder_extra_fields;
-
 export 'package:dropdown_search/dropdown_search.dart';
 export 'package:flutter_rating_bar/flutter_rating_bar.dart';
 

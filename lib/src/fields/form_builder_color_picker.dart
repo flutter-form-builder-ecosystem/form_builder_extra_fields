@@ -23,7 +23,7 @@ extension on Color {
     }
 
     return '${leadingHashSign ? '#' : ''}'
-        '${hexValue(alpha)}${hexValue(red)}${hexValue(green)}${hexValue(blue)}';
+        '${hexValue(a.toInt())}${hexValue(r.toInt())}${hexValue(g.toInt())}${hexValue(b.toInt())}';
   }
 }
 
@@ -252,8 +252,6 @@ class FormBuilderColorPickerFieldState extends FormBuilderFieldDecorationState<
           onColorChanged: _colorChanged,
           availableColors: widget.availableColors,
         );
-      default:
-        throw 'Unknown ColorPickerType';
     }
   }
 
