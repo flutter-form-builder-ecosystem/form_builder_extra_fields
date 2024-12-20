@@ -1,3 +1,11 @@
+## 11.1.0
+
+### Features
+
+* Set minimal Flutter version to 3.27.0
+* Set minimal Dart version to 3.6.0
+* Compatibility with `flutter_form_builder` 9.6.x
+
 ## 11.0.0
 
 ### BREAKING CHANGE
