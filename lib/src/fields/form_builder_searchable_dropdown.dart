@@ -67,8 +67,7 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
   final DropdownSearchPopupItemBuilder<T>? popupSelectionWidget;
 
   ///widget used to validate items in multiSelection mode
-  final ValidationMultiSelectionBuilder<T?>?
-      popupValidationMultiSelectionWidget;
+  final ValidationMultiSelectionBuilder<T?>? popupValidationMultiSelectionWidget;
 
   ///widget to add custom widget like addAll/removeAll on popup multi selection mode
   final ValidationMultiSelectionBuilder<T>? popupCustomMultiSelectionWidget;
@@ -137,22 +136,21 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
           builder: (FormFieldState<T?> field) {
             final state = field as FormBuilderSearchableDropdownState<T>;
             return DropdownSearch<T>(
-              // Hack to rebuild when didChange is called
-              asyncItems: asyncItems,
-              clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
               compareFn: compareFn,
               enabled: state.enabled,
               dropdownBuilder: dropdownBuilder,
-              dropdownButtonProps:
-                  dropdownButtonProps ?? const DropdownButtonProps(),
-              dropdownDecoratorProps: DropDownDecoratorProps(
-                dropdownSearchDecoration: state.decoration,
+              suffixProps: DropdownSuffixProps(
+                clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
+                dropdownButtonProps: dropdownButtonProps ?? const DropdownButtonProps(),
+              ),
+              decoratorProps: DropDownDecoratorProps(
+                decoration: state.decoration,
                 textAlign: dropdownSearchTextAlign,
                 textAlignVertical: dropdownSearchTextAlignVertical,
                 baseStyle: dropdownSearchTextStyle,
               ),
               filterFn: filterFn,
-              items: items,
+              items: (filter, infiniteScrollProps) => asyncItems == null ? items : asyncItems(filter, infiniteScrollProps),
               itemAsString: itemAsString,
               onBeforeChange: onBeforeChange,
               onChanged: (value) {
@@ -165,10 +163,7 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
         );
 
   @override
-  FormBuilderSearchableDropdownState<T> createState() =>
-      FormBuilderSearchableDropdownState<T>();
+  FormBuilderSearchableDropdownState<T> createState() => FormBuilderSearchableDropdownState<T>();
 }
 
-class FormBuilderSearchableDropdownState<T>
-    extends FormBuilderFieldDecorationState<FormBuilderSearchableDropdown<T>,
-        T> {}
+class FormBuilderSearchableDropdownState<T> extends FormBuilderFieldDecorationState<FormBuilderSearchableDropdown<T>, T> {}
