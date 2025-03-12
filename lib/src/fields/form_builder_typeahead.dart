@@ -287,7 +287,7 @@ extension TextFiledCopy on TextField {
       onAppPrivateCommand: onAppPrivateCommand,
       onTapAlwaysCalled: onTapAlwaysCalled,
       onTapOutside: onTapOutside,
-      scribbleEnabled: scribbleEnabled,
+      stylusHandwritingEnabled: stylusHandwritingEnabled,
       spellCheckConfiguration: spellCheckConfiguration,
       statesController: statesController,
       strutStyle: strutStyle,
