@@ -137,22 +137,24 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
           builder: (FormFieldState<T?> field) {
             final state = field as FormBuilderSearchableDropdownState<T>;
             return DropdownSearch<T>(
-              // Hack to rebuild when didChange is called
-              asyncItems: asyncItems,
-              clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
               compareFn: compareFn,
               enabled: state.enabled,
               dropdownBuilder: dropdownBuilder,
-              dropdownButtonProps:
-                  dropdownButtonProps ?? const DropdownButtonProps(),
-              dropdownDecoratorProps: DropDownDecoratorProps(
-                dropdownSearchDecoration: state.decoration,
+              suffixProps: DropdownSuffixProps(
+                clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
+                dropdownButtonProps:
+                    dropdownButtonProps ?? const DropdownButtonProps(),
+              ),
+              decoratorProps: DropDownDecoratorProps(
+                decoration: state.decoration,
                 textAlign: dropdownSearchTextAlign,
                 textAlignVertical: dropdownSearchTextAlignVertical,
                 baseStyle: dropdownSearchTextStyle,
               ),
               filterFn: filterFn,
-              items: items,
+              items: (filter, infiniteScrollProps) => asyncItems == null
+                  ? items
+                  : asyncItems(filter, infiniteScrollProps),
               itemAsString: itemAsString,
               onBeforeChange: onBeforeChange,
               onChanged: (value) {
