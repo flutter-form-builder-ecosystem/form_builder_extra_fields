@@ -69,36 +69,37 @@ class FormBuilderTouchSpin extends FormBuilderFieldDecoration<num> {
     this.subtractIcon = const Icon(Icons.remove),
     this.textStyle = const TextStyle(fontSize: 24),
   }) : super(
-          builder: (FormFieldState<num?> field) {
-            final state = field as FormBuilderTouchSpinState;
-            final theme = Theme.of(state.context);
+         builder: (FormFieldState<num?> field) {
+           final state = field as FormBuilderTouchSpinState;
+           final theme = Theme.of(state.context);
 
-            return InputDecorator(
-              decoration: state.decoration,
-              child: TouchSpin(
-                key: ObjectKey(state.value),
-                min: min,
-                max: max,
-                step: step,
-                value: field.value ?? 0,
-                iconSize: iconSize,
-                onChanged: state.enabled
-                    ? (value) {
-                        state.didChange(value);
-                      }
-                    : null,
-                displayFormat: displayFormat,
-                textStyle: textStyle,
-                addIcon: addIcon,
-                subtractIcon: subtractIcon,
-                iconActiveColor: iconActiveColor ?? theme.primaryColor,
-                iconDisabledColor: iconDisabledColor ?? theme.disabledColor,
-                iconPadding: iconPadding,
-                enabled: state.enabled,
-              ),
-            );
-          },
-        );
+           return InputDecorator(
+             decoration: state.decoration,
+             child: TouchSpin(
+               key: ObjectKey(state.value),
+               min: min,
+               max: max,
+               step: step,
+               value: field.value ?? 0,
+               iconSize: iconSize,
+               onChanged:
+                   state.enabled
+                       ? (value) {
+                         state.didChange(value);
+                       }
+                       : null,
+               displayFormat: displayFormat,
+               textStyle: textStyle,
+               addIcon: addIcon,
+               subtractIcon: subtractIcon,
+               iconActiveColor: iconActiveColor ?? theme.primaryColor,
+               iconDisabledColor: iconDisabledColor ?? theme.disabledColor,
+               iconPadding: iconPadding,
+               enabled: state.enabled,
+             ),
+           );
+         },
+       );
 
   @override
   FormBuilderTouchSpinState createState() => FormBuilderTouchSpinState();

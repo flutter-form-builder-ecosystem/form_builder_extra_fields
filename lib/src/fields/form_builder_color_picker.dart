@@ -114,64 +114,66 @@ class FormBuilderColorPickerField extends FormBuilderFieldDecoration<Color> {
     this.colorPreviewBuilder,
     this.availableColors = const [],
   }) : super(
-          builder: (FormFieldState<Color?> field) {
-            final state = field as FormBuilderColorPickerFieldState;
-            return TextField(
-              style: style,
-              decoration: state.decoration.copyWith(
-                suffixIcon: colorPreviewBuilder != null
-                    ? colorPreviewBuilder(field.value)
-                    : LayoutBuilder(
-                        key: ObjectKey(state.value),
-                        builder: (context, constraints) {
-                          return Icon(
-                            Icons.circle,
-                            key: ObjectKey(state.value),
-                            size: constraints.minHeight,
-                            color: state.value,
-                          );
-                        },
-                      ),
-              ),
-              enabled: state.enabled,
-              readOnly: readOnly,
-              controller: state._effectiveController,
-              focusNode: state.effectiveFocusNode,
-              textAlign: textAlign,
-              autofocus: autofocus,
-              expands: expands,
-              scrollPadding: scrollPadding,
-              autocorrect: autocorrect,
-              textCapitalization: textCapitalization,
-              keyboardType: keyboardType,
-              obscureText: obscureText,
-              buildCounter: buildCounter,
-              cursorColor: cursorColor,
-              cursorRadius: cursorRadius,
-              cursorWidth: cursorWidth,
-              enableInteractiveSelection: enableInteractiveSelection,
-              inputFormatters: inputFormatters,
-              keyboardAppearance: keyboardAppearance,
-              maxLength: maxLength,
-              maxLengthEnforcement: maxLengthEnforcement,
-              maxLines: maxLines,
-              minLines: minLines,
-              onEditingComplete: onEditingComplete,
-              showCursor: showCursor,
-              strutStyle: strutStyle,
-              textDirection: textDirection,
-              textInputAction: textInputAction,
-            );
-          },
-        );
+         builder: (FormFieldState<Color?> field) {
+           final state = field as FormBuilderColorPickerFieldState;
+           return TextField(
+             style: style,
+             decoration: state.decoration.copyWith(
+               suffixIcon:
+                   colorPreviewBuilder != null
+                       ? colorPreviewBuilder(field.value)
+                       : LayoutBuilder(
+                         key: ObjectKey(state.value),
+                         builder: (context, constraints) {
+                           return Icon(
+                             Icons.circle,
+                             key: ObjectKey(state.value),
+                             size: constraints.minHeight,
+                             color: state.value,
+                           );
+                         },
+                       ),
+             ),
+             enabled: state.enabled,
+             readOnly: readOnly,
+             controller: state._effectiveController,
+             focusNode: state.effectiveFocusNode,
+             textAlign: textAlign,
+             autofocus: autofocus,
+             expands: expands,
+             scrollPadding: scrollPadding,
+             autocorrect: autocorrect,
+             textCapitalization: textCapitalization,
+             keyboardType: keyboardType,
+             obscureText: obscureText,
+             buildCounter: buildCounter,
+             cursorColor: cursorColor,
+             cursorRadius: cursorRadius,
+             cursorWidth: cursorWidth,
+             enableInteractiveSelection: enableInteractiveSelection,
+             inputFormatters: inputFormatters,
+             keyboardAppearance: keyboardAppearance,
+             maxLength: maxLength,
+             maxLengthEnforcement: maxLengthEnforcement,
+             maxLines: maxLines,
+             minLines: minLines,
+             onEditingComplete: onEditingComplete,
+             showCursor: showCursor,
+             strutStyle: strutStyle,
+             textDirection: textDirection,
+             textInputAction: textInputAction,
+           );
+         },
+       );
 
   @override
   FormBuilderColorPickerFieldState createState() =>
       FormBuilderColorPickerFieldState();
 }
 
-class FormBuilderColorPickerFieldState extends FormBuilderFieldDecorationState<
-    FormBuilderColorPickerField, Color> {
+class FormBuilderColorPickerFieldState
+    extends
+        FormBuilderFieldDecorationState<FormBuilderColorPickerField, Color> {
   late TextEditingController _effectiveController;
 
   String? get valueString => value?.toHex();
@@ -206,9 +208,7 @@ class FormBuilderColorPickerFieldState extends FormBuilderFieldDecorationState<
 
           return AlertDialog(
             // title: null, //const Text('Pick a color!'),
-            content: SingleChildScrollView(
-              child: _buildColorPicker(),
-            ),
+            content: SingleChildScrollView(child: _buildColorPicker()),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
