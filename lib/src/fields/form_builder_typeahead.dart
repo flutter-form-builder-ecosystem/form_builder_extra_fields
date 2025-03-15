@@ -16,7 +16,8 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
   final Duration debounceDuration;
   final WidgetBuilder? loadingBuilder;
   final WidgetBuilder? emptyBuilder;
-  final Widget Function(BuildContext, Object)? errorBuilder;
+  final Widget Function(BuildContext context, Object error)?
+  suggestionErrorBuilder;
   final Widget Function(BuildContext, Animation<double>, Widget)?
   transitionBuilder;
   final Duration animationDuration;
@@ -73,7 +74,7 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
     this.controller,
     this.debounceDuration = const Duration(milliseconds: 300),
     this.direction,
-    this.errorBuilder,
+    this.suggestionErrorBuilder,
     this.hideOnUnfocus = true,
     this.hideOnEmpty = false,
     this.hideOnError = false,
@@ -147,7 +148,7 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
                state.didChange(suggestion);
                onSelected?.call(suggestion);
              },
-             errorBuilder: errorBuilder,
+             errorBuilder: suggestionErrorBuilder,
              emptyBuilder: emptyBuilder,
              loadingBuilder: loadingBuilder,
              debounceDuration: debounceDuration,
