@@ -42,6 +42,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action/setup@v3
         with:
           path: '.fvmrc'
+          cache-key: ${{ runner.os }}-flutter-${{ matrix.flutter-version }}
           flavor: ${{ matrix.flutter-version }}
       - name: Install dependencies
         run: flutter pub get
