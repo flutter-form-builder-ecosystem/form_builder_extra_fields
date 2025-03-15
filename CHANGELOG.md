@@ -1,3 +1,20 @@
+## 12.0.0
+
+### BREAKING CHANGE
+
+* Easy way! Only need execute `dart fix --apply` on your project to fix the following changes:
+  * Rename `errorBuilder` to `suggestionErrorBuilder` in `FormBuilderTypeAhead`
+
+### Features
+
+* Compatibility with `flutter_form_builder` 10.0.x. See details on their [changelog](https://pub.dev/packages/flutter_form_builder/changelog)
+* Set minimal Flutter version to 3.29.0
+* Set minimal Dart version to 3.7.0
+* Allow `intl` version up to 0.21
+* Update example platform setup
+* Bumped dropdown_search to 6.0.2 and updated searchable dropdown by @troya2 in [#136](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/pull/136)
+* build(deps): bump signature from 5.5.0 to 6.0.0 in [#134](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/pull/134)
+
 ## 11.1.0
 
 ### Features
