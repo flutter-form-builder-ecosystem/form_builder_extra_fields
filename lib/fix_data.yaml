@@ -4,8 +4,9 @@ transforms:
     date: 2025-03-15
     element:
       uris: [ 'form_builder_extra_fields.dart' ]
+      constructor: ''
       inClass: 'FormBuilderTypeAhead'
-      field: 'errorBuilder'
     changes:
-      - kind: 'rename'
+      - kind: 'renameParameter'
+        oldName: 'errorBuilder'
         newName: 'suggestionErrorBuilder'
