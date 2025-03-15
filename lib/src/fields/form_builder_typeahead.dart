@@ -16,9 +16,10 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
   final Duration debounceDuration;
   final WidgetBuilder? loadingBuilder;
   final WidgetBuilder? emptyBuilder;
-  final Widget Function(BuildContext, Object)? errorBuilder;
+  final Widget Function(BuildContext context, Object error)?
+  suggestionErrorBuilder;
   final Widget Function(BuildContext, Animation<double>, Widget)?
-      transitionBuilder;
+  transitionBuilder;
   final Duration animationDuration;
   final VerticalDirection? direction;
 
@@ -73,7 +74,7 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
     this.controller,
     this.debounceDuration = const Duration(milliseconds: 300),
     this.direction,
-    this.errorBuilder,
+    this.suggestionErrorBuilder,
     this.hideOnUnfocus = true,
     this.hideOnEmpty = false,
     this.hideOnError = false,
@@ -98,74 +99,76 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
     this.listBuilder,
     this.showOnFocus = true,
     this.constraints,
-  })  : assert(T == String || selectionToTextTransformer != null),
-        super(
-          builder: (FormFieldState<T?> field) {
-            final state = field as FormBuilderTypeAheadState<T>;
-            final theme = Theme.of(state.context);
+  }) : assert(T == String || selectionToTextTransformer != null),
+       super(
+         builder: (FormFieldState<T?> field) {
+           final state = field as FormBuilderTypeAheadState<T>;
+           final theme = Theme.of(state.context);
 
-            return TypeAheadField<T>(
-              controller: state._typeAheadController,
-              focusNode: state.effectiveFocusNode,
-              showOnFocus: showOnFocus,
-              constraints: constraints,
-              builder: (context, controller, focusNode) {
-                return customTextField != null
-                    ? customTextField.copyWith(
-                        enabled: state.enabled,
-                        controller: controller,
-                        focusNode: focusNode,
-                        decoration: state.decoration,
-                        style: state.enabled
-                            ? customTextField.style
-                            : theme.textTheme.titleMedium!.copyWith(
-                                color: theme.disabledColor,
-                              ),
-                      )
-                    : TextField(
-                        enabled: state.enabled,
-                        controller: controller,
-                        focusNode: focusNode,
-                        decoration: state.decoration,
-                        style: state.enabled
-                            ? theme.textTheme.titleMedium
-                            : theme.textTheme.titleMedium!.copyWith(
-                                color: theme.disabledColor,
-                              ),
-                      );
-              },
-              autoFlipMinHeight: autoFlipMinHeight,
-              hideKeyboardOnDrag: hideKeyboardOnDrag,
-              itemSeparatorBuilder: itemSeparatorBuilder,
-              listBuilder: listBuilder,
-              suggestionsCallback: suggestionsCallback,
-              itemBuilder: itemBuilder,
-              transitionBuilder: (context, animation, child) => child,
-              onSelected: (T suggestion) {
-                state.didChange(suggestion);
-                onSelected?.call(suggestion);
-              },
-              errorBuilder: errorBuilder,
-              emptyBuilder: emptyBuilder,
-              loadingBuilder: loadingBuilder,
-              debounceDuration: debounceDuration,
-              decorationBuilder: decorationBuilder,
-              offset: offset,
-              animationDuration: animationDuration,
-              direction: direction,
-              hideOnLoading: hideOnLoading,
-              hideOnEmpty: hideOnEmpty,
-              hideOnError: hideOnError,
-              hideWithKeyboard: hideWithKeyboard,
-              retainOnLoading: retainOnLoading,
-              autoFlipDirection: autoFlipDirection,
-              suggestionsController: suggestionsController,
-              hideOnSelect: hideOnSelect,
-              hideOnUnfocus: hideOnUnfocus,
-              scrollController: scrollController,
-            );
-          },
-        );
+           return TypeAheadField<T>(
+             controller: state._typeAheadController,
+             focusNode: state.effectiveFocusNode,
+             showOnFocus: showOnFocus,
+             constraints: constraints,
+             builder: (context, controller, focusNode) {
+               return customTextField != null
+                   ? customTextField.copyWith(
+                     enabled: state.enabled,
+                     controller: controller,
+                     focusNode: focusNode,
+                     decoration: state.decoration,
+                     style:
+                         state.enabled
+                             ? customTextField.style
+                             : theme.textTheme.titleMedium!.copyWith(
+                               color: theme.disabledColor,
+                             ),
+                   )
+                   : TextField(
+                     enabled: state.enabled,
+                     controller: controller,
+                     focusNode: focusNode,
+                     decoration: state.decoration,
+                     style:
+                         state.enabled
+                             ? theme.textTheme.titleMedium
+                             : theme.textTheme.titleMedium!.copyWith(
+                               color: theme.disabledColor,
+                             ),
+                   );
+             },
+             autoFlipMinHeight: autoFlipMinHeight,
+             hideKeyboardOnDrag: hideKeyboardOnDrag,
+             itemSeparatorBuilder: itemSeparatorBuilder,
+             listBuilder: listBuilder,
+             suggestionsCallback: suggestionsCallback,
+             itemBuilder: itemBuilder,
+             transitionBuilder: (context, animation, child) => child,
+             onSelected: (T suggestion) {
+               state.didChange(suggestion);
+               onSelected?.call(suggestion);
+             },
+             errorBuilder: suggestionErrorBuilder,
+             emptyBuilder: emptyBuilder,
+             loadingBuilder: loadingBuilder,
+             debounceDuration: debounceDuration,
+             decorationBuilder: decorationBuilder,
+             offset: offset,
+             animationDuration: animationDuration,
+             direction: direction,
+             hideOnLoading: hideOnLoading,
+             hideOnEmpty: hideOnEmpty,
+             hideOnError: hideOnError,
+             hideWithKeyboard: hideWithKeyboard,
+             retainOnLoading: retainOnLoading,
+             autoFlipDirection: autoFlipDirection,
+             suggestionsController: suggestionsController,
+             hideOnSelect: hideOnSelect,
+             hideOnUnfocus: hideOnUnfocus,
+             scrollController: scrollController,
+           );
+         },
+       );
 
   @override
   FormBuilderTypeAheadState<T> createState() => FormBuilderTypeAheadState<T>();
@@ -178,7 +181,8 @@ class FormBuilderTypeAheadState<T>
   @override
   void initState() {
     super.initState();
-    _typeAheadController = widget.controller ??
+    _typeAheadController =
+        widget.controller ??
         TextEditingController(text: _getTextString(initialValue));
   }
 
@@ -207,9 +211,10 @@ class FormBuilderTypeAheadState<T>
   }
 
   String _getTextString(T? value) {
-    var text = value == null
-        ? ''
-        : widget.selectionToTextTransformer != null
+    var text =
+        value == null
+            ? ''
+            : widget.selectionToTextTransformer != null
             ? widget.selectionToTextTransformer!(value)
             : value.toString();
 

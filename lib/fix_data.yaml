@@ -1,0 +1,12 @@
+version: 1
+transforms:
+  - title: 'Rename FormBuilderTypeAhead property errorBuilder to be suggestionErrorBuilder'
+    date: 2025-03-15
+    element:
+      uris: [ 'form_builder_extra_fields.dart' ]
+      constructor: ''
+      inClass: 'FormBuilderTypeAhead'
+    changes:
+      - kind: 'renameParameter'
+        oldName: 'errorBuilder'
+        newName: 'suggestionErrorBuilder'

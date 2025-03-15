@@ -125,44 +125,45 @@ class FormBuilderRatingBar extends FormBuilderFieldDecoration<double> {
     this.updateOnDrag = false,
     this.wrapAlignment = WrapAlignment.start,
   }) : super(
-          builder: (FormFieldState<double?> field) {
-            final state = field as FormBuilderRatingBarState;
-            final widget = state.widget;
+         builder: (FormFieldState<double?> field) {
+           final state = field as FormBuilderRatingBarState;
+           final widget = state.widget;
 
-            return InputDecorator(
-              decoration: state.decoration,
-              child: RatingBar(
-                initialRating: field.value ?? widget.minRating,
-                minRating: widget.minRating,
-                direction: widget.direction,
-                allowHalfRating: widget.allowHalfRating,
-                itemCount: widget.itemCount,
-                itemPadding: widget.itemPadding,
-                // itemBuilder: widget.itemBuilder
-                onRatingUpdate: (rating) {
-                  field.didChange(rating);
-                },
-                ratingWidget: widget.ratingWidget ??
-                    RatingWidget(
-                      full: const Icon(Icons.star),
-                      half: const Icon(Icons.star_half_outlined),
-                      empty: const Icon(Icons.star_outline),
-                    ),
-                glow: widget.glow,
-                glowColor: widget.glowColor,
-                glowRadius: widget.glowRadius,
-                ignoreGestures: !state.enabled,
-                itemSize: widget.itemSize,
-                maxRating: widget.maxRating,
-                tapOnlyMode: widget.tapOnlyMode,
-                textDirection: widget.textDirection,
-                unratedColor: widget.unratedColor,
-                updateOnDrag: widget.updateOnDrag,
-                wrapAlignment: widget.wrapAlignment,
-              ),
-            );
-          },
-        );
+           return InputDecorator(
+             decoration: state.decoration,
+             child: RatingBar(
+               initialRating: field.value ?? widget.minRating,
+               minRating: widget.minRating,
+               direction: widget.direction,
+               allowHalfRating: widget.allowHalfRating,
+               itemCount: widget.itemCount,
+               itemPadding: widget.itemPadding,
+               // itemBuilder: widget.itemBuilder
+               onRatingUpdate: (rating) {
+                 field.didChange(rating);
+               },
+               ratingWidget:
+                   widget.ratingWidget ??
+                   RatingWidget(
+                     full: const Icon(Icons.star),
+                     half: const Icon(Icons.star_half_outlined),
+                     empty: const Icon(Icons.star_outline),
+                   ),
+               glow: widget.glow,
+               glowColor: widget.glowColor,
+               glowRadius: widget.glowRadius,
+               ignoreGestures: !state.enabled,
+               itemSize: widget.itemSize,
+               maxRating: widget.maxRating,
+               tapOnlyMode: widget.tapOnlyMode,
+               textDirection: widget.textDirection,
+               unratedColor: widget.unratedColor,
+               updateOnDrag: widget.updateOnDrag,
+               wrapAlignment: widget.wrapAlignment,
+             ),
+           );
+         },
+       );
 
   @override
   FormBuilderRatingBarState createState() => FormBuilderRatingBarState();

@@ -25,13 +25,16 @@ void main() {
       suggestionsCallback: (query) {
         if (query.isNotEmpty) {
           var lowercaseQuery = query.toLowerCase();
-          return options.where((country) {
-            return country.toLowerCase().contains(lowercaseQuery);
-          }).toList(growable: false)
-            ..sort((a, b) => a
+          return options
+            .where((country) {
+              return country.toLowerCase().contains(lowercaseQuery);
+            })
+            .toList(growable: false)..sort(
+            (a, b) => a
                 .toLowerCase()
                 .indexOf(lowercaseQuery)
-                .compareTo(b.toLowerCase().indexOf(lowercaseQuery)));
+                .compareTo(b.toLowerCase().indexOf(lowercaseQuery)),
+          );
         } else {
           return options;
         }

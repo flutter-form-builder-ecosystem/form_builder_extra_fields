@@ -11,9 +11,17 @@ on:
 
   workflow_dispatch:
 
+# This ensures that previous jobs for the PR are canceled when PR is updated
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        flutter-version: [stable, beta]
 
     steps:
       - uses: actions/checkout@v4
@@ -29,19 +37,22 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '17'
       - name: Setup Flutter
         uses: kuhnroyal/flutter-fvm-config-action/setup@v3
         with:
           path: '.fvmrc'
+          flavor: ${{ matrix.flutter-version }}
       - name: Install dependencies
         run: flutter pub get
       - name: Format code
-        run: dart format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed lib/ test/ example/
       - name: Analyze static code
         run: flutter analyze
       - name: Run tests
         run: flutter test --no-pub --coverage
+      - name: Run fixes tests
+        run: dart fix --compare-to-golden test_fixes/
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:

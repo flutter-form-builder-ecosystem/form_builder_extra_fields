@@ -56,52 +56,14 @@ class MyHomePageState extends State<MyHomePage> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                FormBuilderSearchableDropdown<String>(
-                  name: 'searchable_dropdown_online',
-                  onChanged: _onChanged,
-                  asyncItems: (filter, _) async {
-                    await Future.delayed(const Duration(seconds: 1));
-                    return allCountries
-                        .where(
-                          (element) => element.toLowerCase().contains(
-                            filter.toLowerCase(),
-                          ),
-                        )
-                        .toList();
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Searchable Dropdown Online',
-                  ),
-                ),
-                FormBuilderSearchableDropdown<String>(
-                  popupProps: const PopupProps.menu(showSearchBox: true),
-                  dropdownSearchDecoration: const InputDecoration(
-                    hintText: 'Search',
-                    labelText: 'Search',
-                  ),
-                  name: 'searchable_dropdown_offline',
-                  items: allCountries,
-                  onChanged: _onChanged,
-                  decoration: const InputDecoration(
-                    labelText: 'Searchable Dropdown Offline',
-                  ),
-                  filterFn:
-                      (country, filter) =>
-                          country.toLowerCase().contains(filter.toLowerCase()),
-                ),
-                const SizedBox(height: 15),
-                FormBuilderColorPickerField(
-                  name: 'color_picker',
-                  initialValue: Colors.yellow,
-                  // readOnly: true,
-                  colorPickerType: ColorPickerType.materialPicker,
-                  decoration: const InputDecoration(labelText: 'Color Picker'),
-                ),
                 FormBuilderTypeAhead<String>(
                   decoration: const InputDecoration(
                     labelText: 'TypeAhead (Autocomplete TextField)',
                     hintText: 'Start typing country name',
                   ),
+                  errorBuilder: (context, error) {
+                    return ListTile(title: Text('Error: $error'));
+                  },
                   name: 'country',
                   onChanged: _onChanged,
                   itemBuilder: (context, country) {
@@ -125,31 +87,6 @@ class MyHomePageState extends State<MyHomePage> {
                       return allCountries;
                     }
                   },
-                ),
-                FormBuilderTouchSpin(
-                  decoration: const InputDecoration(labelText: 'TouchSpin'),
-                  name: 'touch_spin',
-                  initialValue: 10,
-                  step: 1,
-                  iconSize: 48.0,
-                  addIcon: const Icon(Icons.arrow_right),
-                  subtractIcon: const Icon(Icons.arrow_left),
-                  onChanged: _onChanged,
-                ),
-                FormBuilderRatingBar(
-                  decoration: const InputDecoration(labelText: 'Rating Bar'),
-                  name: 'rate',
-                  // enabled: false,
-                  itemSize: 32.0,
-                  initialValue: 1.0,
-                  maxRating: 5.0,
-                  onChanged: _onChanged,
-                ),
-                FormBuilderSignaturePad(
-                  decoration: const InputDecoration(labelText: 'Signature Pad'),
-                  name: 'signature',
-                  border: Border.all(color: Colors.green),
-                  onChanged: _onChanged,
                 ),
                 const SizedBox(height: 10),
                 Row(
@@ -186,29 +123,6 @@ class MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-}
-
-class Contact {
-  final String name;
-  final String email;
-  final String imageUrl;
-
-  const Contact(this.name, this.email, this.imageUrl);
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Contact &&
-          runtimeType == other.runtimeType &&
-          name == other.name;
-
-  @override
-  int get hashCode => name.hashCode;
-
-  @override
-  String toString() {
-    return name;
   }
 }
 
@@ -452,67 +366,4 @@ const allCountries = [
   'Yugoslavia',
   'Zambia',
   'Zimbabwe',
-];
-
-const contacts = <Contact>[
-  Contact(
-    'Andrew',
-    'stock@man.com',
-    'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4057996.jpg',
-  ),
-  Contact(
-    'Paul',
-    'paul@google.com',
-    'https://media.istockphoto.com/photos/man-with-crossed-arms-isolated-on-gray-background-picture-id1171169099',
-  ),
-  Contact(
-    'Fred',
-    'fred@google.com',
-    'https://media.istockphoto.com/photos/confident-businessman-posing-in-the-office-picture-id891418990',
-  ),
-  Contact(
-    'Brian',
-    'brian@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'John',
-    'john@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Thomas',
-    'thomas@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Nelly',
-    'nelly@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Marie',
-    'marie@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Charlie',
-    'charlie@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Diana',
-    'diana@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Ernie',
-    'ernie@flutter.io',
-    'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-  ),
-  Contact(
-    'Gina',
-    'gina@flutter.io',
-    'https://media.istockphoto.com/photos/all-set-for-a-productive-night-ahead-picture-id637233964',
-  ),
 ];
