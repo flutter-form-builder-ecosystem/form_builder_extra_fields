@@ -51,6 +51,8 @@ jobs:
         run: flutter analyze
       - name: Run tests
         run: flutter test --no-pub --coverage
+      - name: Run fixes tests
+        run: dart fix --compare-to-golden test_fixes/
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
