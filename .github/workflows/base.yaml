@@ -18,59 +18,16 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        flutter-version: [stable, beta]
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1 # Use shallow clone for faster checkout
-
-      - name: Check broken links
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: "**/*.md"
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-      - name: Setup Flutter
-        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
-        with:
-          path: '.fvmrc'
-          cache-key: ${{ runner.os }}-flutter-${{ matrix.flutter-version }}
-          flavor: ${{ matrix.flutter-version }}
-      - name: Install dependencies
-        run: flutter pub get
-      - name: Format code
-        run: dart format --set-exit-if-changed lib/ test/ example/
-      - name: Analyze static code
-        run: flutter analyze
-      - name: Run tests
-        run: flutter test --no-pub --coverage
-      - name: Run fixes tests
-        run: dart fix --compare-to-golden test_fixes/
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          files: coverage/lcov.info
-          name: form_builder_extra_fields
-      - name: Check publish warnings
-        run: dart pub publish --dry-run
-      - name: Build example
-        run: |
-          cd example
-          flutter build appbundle --debug
-          flutter build ios --debug --no-codesign
-          flutter build web
+    uses: flutter-form-builder-ecosystem/.github/.github/workflows/minimal-quality.yaml@main
+    with:
+      codecov-name: form_builder_extra_fields
+      enable-fix-tests: true
+  example:
+    uses: flutter-form-builder-ecosystem/.github/.github/workflows/build-examples.yaml@main
 
   deployment:
     permissions:
       id-token: write
     uses: flutter-form-builder-ecosystem/.github/.github/workflows/deployment.yaml@main
     if: ${{ github.ref_type == 'tag' }}
-    needs: build
+    needs: [build, example]
