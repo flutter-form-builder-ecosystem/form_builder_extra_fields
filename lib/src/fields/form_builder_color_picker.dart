@@ -5,28 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-extension on Color {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
-  /*static Color fromHex(String hexString) {
-    final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
-    buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
-  }*/
-
-  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
-  String toHex({bool leadingHashSign = true}) {
-    /// Converts an rgba value (0-255) into a 2-digit Hex code.
-    String hexValue(int rgbaVal) {
-      assert(rgbaVal == rgbaVal & 0xFF);
-      return rgbaVal.toRadixString(16).padLeft(2, '0').toUpperCase();
-    }
-
-    return '${leadingHashSign ? '#' : ''}'
-        '${hexValue(a.toInt())}${hexValue(r.toInt())}${hexValue(g.toInt())}${hexValue(b.toInt())}';
-  }
-}
-
 enum ColorPickerType { colorPicker, materialPicker, blockPicker }
 
 /// Creates a field for `Color` input selection
@@ -176,7 +154,7 @@ class FormBuilderColorPickerFieldState
         FormBuilderFieldDecorationState<FormBuilderColorPickerField, Color> {
   late TextEditingController _effectiveController;
 
-  String? get valueString => value?.toHex();
+  String? get valueString => value?.toHexString();
 
   Color? _selectedColor;
 
