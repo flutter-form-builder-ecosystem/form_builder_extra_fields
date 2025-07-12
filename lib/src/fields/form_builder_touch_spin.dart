@@ -82,12 +82,11 @@ class FormBuilderTouchSpin extends FormBuilderFieldDecoration<num> {
                step: step,
                value: field.value ?? 0,
                iconSize: iconSize,
-               onChanged:
-                   state.enabled
-                       ? (value) {
-                         state.didChange(value);
-                       }
-                       : null,
+               onChanged: state.enabled
+                   ? (value) {
+                       state.didChange(value);
+                     }
+                   : null,
                displayFormat: displayFormat,
                textStyle: textStyle,
                addIcon: addIcon,

@@ -5,7 +5,9 @@ final _formKey = GlobalKey<FormBuilderState>();
 
 Widget buildTestableFieldWidget(Widget widget) {
   return MaterialApp(
-    home: Scaffold(body: FormBuilder(key: _formKey, child: widget)),
+    home: Scaffold(
+      body: FormBuilder(key: _formKey, child: widget),
+    ),
   );
 }
 

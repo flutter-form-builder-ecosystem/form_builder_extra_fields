@@ -113,29 +113,27 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
              builder: (context, controller, focusNode) {
                return customTextField != null
                    ? customTextField.copyWith(
-                     enabled: state.enabled,
-                     controller: controller,
-                     focusNode: focusNode,
-                     decoration: state.decoration,
-                     style:
-                         state.enabled
-                             ? customTextField.style
-                             : theme.textTheme.titleMedium!.copyWith(
+                       enabled: state.enabled,
+                       controller: controller,
+                       focusNode: focusNode,
+                       decoration: state.decoration,
+                       style: state.enabled
+                           ? customTextField.style
+                           : theme.textTheme.titleMedium!.copyWith(
                                color: theme.disabledColor,
                              ),
-                   )
+                     )
                    : TextField(
-                     enabled: state.enabled,
-                     controller: controller,
-                     focusNode: focusNode,
-                     decoration: state.decoration,
-                     style:
-                         state.enabled
-                             ? theme.textTheme.titleMedium
-                             : theme.textTheme.titleMedium!.copyWith(
+                       enabled: state.enabled,
+                       controller: controller,
+                       focusNode: focusNode,
+                       decoration: state.decoration,
+                       style: state.enabled
+                           ? theme.textTheme.titleMedium
+                           : theme.textTheme.titleMedium!.copyWith(
                                color: theme.disabledColor,
                              ),
-                   );
+                     );
              },
              autoFlipMinHeight: autoFlipMinHeight,
              hideKeyboardOnDrag: hideKeyboardOnDrag,
@@ -211,12 +209,11 @@ class FormBuilderTypeAheadState<T>
   }
 
   String _getTextString(T? value) {
-    var text =
-        value == null
-            ? ''
-            : widget.selectionToTextTransformer != null
-            ? widget.selectionToTextTransformer!(value)
-            : value.toString();
+    var text = value == null
+        ? ''
+        : widget.selectionToTextTransformer != null
+        ? widget.selectionToTextTransformer!(value)
+        : value.toString();
 
     return text;
   }

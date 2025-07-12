@@ -74,15 +74,20 @@ class MyHomePageState extends State<MyHomePage> {
                     if (query.isNotEmpty) {
                       var lowercaseQuery = query.toLowerCase();
                       return allCountries
-                        .where((country) {
-                          return country.toLowerCase().contains(lowercaseQuery);
-                        })
-                        .toList(growable: false)..sort(
-                        (a, b) => a
-                            .toLowerCase()
-                            .indexOf(lowercaseQuery)
-                            .compareTo(b.toLowerCase().indexOf(lowercaseQuery)),
-                      );
+                          .where((country) {
+                            return country.toLowerCase().contains(
+                              lowercaseQuery,
+                            );
+                          })
+                          .toList(growable: false)
+                        ..sort(
+                          (a, b) => a
+                              .toLowerCase()
+                              .indexOf(lowercaseQuery)
+                              .compareTo(
+                                b.toLowerCase().indexOf(lowercaseQuery),
+                              ),
+                        );
                     } else {
                       return allCountries;
                     }

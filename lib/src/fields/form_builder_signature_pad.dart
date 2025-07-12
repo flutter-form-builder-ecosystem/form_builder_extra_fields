@@ -60,8 +60,9 @@ class FormBuilderSignaturePad extends FormBuilderFieldDecoration<Uint8List> {
            final state = field as FormBuilderSignaturePadState;
            final theme = Theme.of(state.context);
            final localizations = MaterialLocalizations.of(state.context);
-           final cancelButtonColor =
-               state.enabled ? theme.colorScheme.error : theme.disabledColor;
+           final cancelButtonColor = state.enabled
+               ? theme.colorScheme.error
+               : theme.disabledColor;
 
            return InputDecorator(
              decoration: state.decoration,
@@ -72,36 +73,33 @@ class FormBuilderSignaturePad extends FormBuilderFieldDecoration<Uint8List> {
                    width: width,
                    decoration: BoxDecoration(
                      border: border,
-                     image:
-                         null != initialValue && initialValue == state.value
-                             ? DecorationImage(image: MemoryImage(state.value!))
-                             : null,
+                     image: null != initialValue && initialValue == state.value
+                         ? DecorationImage(image: MemoryImage(state.value!))
+                         : null,
                    ),
-                   child:
-                       state.enabled
-                           ? GestureDetector(
-                             onHorizontalDragUpdate: (_) {},
-                             onVerticalDragUpdate: (_) {},
-                             child: Signature(
-                               controller: state.effectiveController,
-                               width: width,
-                               height: height,
-                               backgroundColor: backgroundColor,
-                             ),
-                           )
-                           : null,
+                   child: state.enabled
+                       ? GestureDetector(
+                           onHorizontalDragUpdate: (_) {},
+                           onVerticalDragUpdate: (_) {},
+                           child: Signature(
+                             controller: state.effectiveController,
+                             width: width,
+                             height: height,
+                             backgroundColor: backgroundColor,
+                           ),
+                         )
+                       : null,
                  ),
                  Row(
                    children: <Widget>[
                      const Expanded(child: SizedBox()),
                      TextButton.icon(
-                       onPressed:
-                           state.enabled
-                               ? () {
-                                 state.effectiveController.clear();
-                                 field.didChange(null);
-                               }
-                               : null,
+                       onPressed: state.enabled
+                           ? () {
+                               state.effectiveController.clear();
+                               field.didChange(null);
+                             }
+                           : null,
                        label: Text(
                          clearButtonText ?? localizations.cancelButtonLabel,
                          style: TextStyle(color: cancelButtonColor),

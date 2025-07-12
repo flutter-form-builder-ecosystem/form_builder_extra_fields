@@ -68,11 +68,9 @@ class TouchSpinState extends State<TouchSpin> {
     }
   }
 
-  Color? _spinButtonColor(bool btnDisabled) =>
-      btnDisabled
-          ? widget.iconDisabledColor ?? Theme.of(context).disabledColor
-          : widget.iconActiveColor ??
-              Theme.of(context).textTheme.labelLarge?.color;
+  Color? _spinButtonColor(bool btnDisabled) => btnDisabled
+      ? widget.iconDisabledColor ?? Theme.of(context).disabledColor
+      : widget.iconActiveColor ?? Theme.of(context).textTheme.labelLarge?.color;
 
   void _adjustValue(num adjustment) {
     num newVal = _value + adjustment;

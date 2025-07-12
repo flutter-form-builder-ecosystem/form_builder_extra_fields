@@ -152,11 +152,9 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
                baseStyle: dropdownSearchTextStyle,
              ),
              filterFn: filterFn,
-             items:
-                 (filter, infiniteScrollProps) =>
-                     asyncItems == null
-                         ? items
-                         : asyncItems(filter, infiniteScrollProps),
+             items: (filter, infiniteScrollProps) => asyncItems == null
+                 ? items
+                 : asyncItems(filter, infiniteScrollProps),
              itemAsString: itemAsString,
              onBeforeChange: onBeforeChange,
              onChanged: (value) {
