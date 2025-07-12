@@ -1,3 +1,10 @@
+## 12.1.0
+
+* Add windows setup on example
+* Set minimal Flutter version to 3.32.0
+* Set minimal Dart version to 3.8.0
+* [FormBuilderColorPicker] Fix color string.
+
 ## 12.0.0
 
 ### BREAKING CHANGE
