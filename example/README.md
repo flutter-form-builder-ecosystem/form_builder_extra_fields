@@ -1,16 +1,29 @@
-# example
+# Form Builder Extra Fields Example
 
-A new Flutter project.
+This is a simple example project demonstrating the usage of the form builder extra fields.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with this project, clone the repository and run the example application.
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+# Clone the repository
+git clone https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields.git
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Navigate to the example directory
+cd form_builder_extra_fields/example
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Run the application
+flutter run
+```
+
+## Features
+
+- Demonstrates how to use various form builder fields.
+- Provides examples for customization and usage.
+
+## Related Resources
+
+- [Flutter Form Builder Documentation](https://pub.dev/packages/form_builder_extra_fields)
+- [Form Builder Validators](https://pub.dev/packages/form_builder_validators)
+- [Flutter Documentation](https://docs.flutter.dev/)
