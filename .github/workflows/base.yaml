@@ -18,11 +18,15 @@ concurrency:
 
 jobs:
   build:
+    permissions:
+      contents: read
     uses: flutter-form-builder-ecosystem/.github/.github/workflows/minimal-quality.yaml@main
     with:
       codecov-name: form_builder_extra_fields
       enable-fix-tests: true
   example:
+    permissions:
+      contents: read
     uses: flutter-form-builder-ecosystem/.github/.github/workflows/build-examples.yaml@main
 
   deployment:
