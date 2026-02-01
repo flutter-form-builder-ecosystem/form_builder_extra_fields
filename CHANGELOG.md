@@ -1,3 +1,9 @@
+## 12.2.0
+
+* Set minimal Flutter version to 3.38.0
+* Set minimal Dart version to 3.1.0
+* Update example README and project readme links
+
 ## 12.1.0
 
 * Add windows setup on example
