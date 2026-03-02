@@ -89,6 +89,43 @@ class MyHomePageState extends State<MyHomePage> {
                       country.toLowerCase().contains(filter.toLowerCase()),
                 ),
                 const SizedBox(height: 15),
+                FormBuilderSearchableMultiSelectDropdown<String>(
+                  name: 'multiselect_dropdown_offline',
+                  items: allCountries,
+                  onChanged: _onChanged,
+                  decoration: const InputDecoration(
+                    labelText: 'Multiselect Dropdown Offline',
+                  ),
+                  popupProps: const PopupPropsMultiSelection.menu(
+                    showSearchBox: true,
+                    fit: FlexFit.loose,
+                  ),
+                  filterFn: (country, filter) =>
+                      country.toLowerCase().contains(filter.toLowerCase()),
+                ),
+                const SizedBox(height: 15),
+                FormBuilderSearchableMultiSelectDropdown<String>(
+                  name: 'multiselect_dropdown_online',
+                  onChanged: _onChanged,
+                  asyncItems: (filter, _) async {
+                    await Future.delayed(const Duration(seconds: 1));
+                    return allCountries
+                        .where(
+                          (element) => element.toLowerCase().contains(
+                            filter.toLowerCase(),
+                          ),
+                        )
+                        .toList();
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Multiselect Dropdown Online',
+                  ),
+                  popupProps: const PopupPropsMultiSelection.menu(
+                    showSearchBox: true,
+                    fit: FlexFit.loose,
+                  ),
+                ),
+                const SizedBox(height: 15),
                 FormBuilderColorPickerField(
                   name: 'color_picker',
                   initialValue: Colors.yellow,
