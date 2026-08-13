@@ -31,9 +31,10 @@ ___
 
 The currently supported fields include:
 
-- `FormBuilderColorPicker` - Input for `Color` selection
-- `FormBuilderRating` - For selection of a numerical value as a rating
+- `FormBuilderColorPickerField` - Input for `Color` selection
+- `FormBuilderRatingBar` - For selection of a numerical value as a rating
 - `FormBuilderSearchableDropdown` - Field for selecting value(s) from a searchable list
+- `FormBuilderSearchableMultiSelectDropdown` - Searchable list that stores multiple values
 - `FormBuilderSignaturePad` - Field with drawing pad on which user can doodle
 - `FormBuilderTouchSpin` - Selection of a number by tapping on a plus or minus icon
 - `FormBuilderTypeAhead` - Auto-completes user input from a list of items
@@ -59,9 +60,10 @@ Each field has a dependency with your own configurations. Take a look on depende
 
 | Field | Dependency |
 |-------|------------|
-|`FormBuilderColorPicker`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
-|`FormBuilderRating`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
+|`FormBuilderColorPickerField`|[flutter_colorpicker](https://pub.dev/packages/flutter_colorpicker)|
+|`FormBuilderRatingBar`|[flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar)|
 |`FormBuilderSearchableDropdown`|[dropdown_search](https://pub.dev/packages/dropdown_search)|
+|`FormBuilderSearchableMultiSelectDropdown`|[dropdown_search](https://pub.dev/packages/dropdown_search)|
 |`FormBuilderSignaturePad`|[signature](https://pub.dev/packages/signature)|
 |`FormBuilderTouchSpin`|No dependency|
 |`FormBuilderTypeAhead`|[flutter_typeahead](https://pub.dev/packages/flutter_typeahead)|
@@ -86,6 +88,24 @@ FormBuilder(
 ```
 
 See [pub.dev example tab](https://pub.dev/packages/form_builder_extra_fields/example) or [github code](example/lib/main.dart) for more details
+
+### Examples
+
+The [example app](example/lib/main.dart) is a small gallery. Each screen shows the widget, a couple of use cases, and the live form value.
+
+- Complete form with every extra field
+- Color picker types (material, color, block) and a disabled field
+- Searchable dropdown, offline vs a delayed online lookup
+- Searchable multiselect
+- TypeAhead country search, including a required field
+- TouchSpin step / min / max
+- Rating bar, whole stars and half stars
+- Signature pad, with the saved PNG size
+
+```bash
+cd example
+flutter run
+```
 
 For more instructions about `FormBuilder`, see [flutter_form_builder](https://pub.dev/packages/flutter_form_builder) package
 
