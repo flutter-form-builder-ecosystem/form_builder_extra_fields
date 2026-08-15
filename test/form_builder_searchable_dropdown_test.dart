@@ -1,4 +1,5 @@
-import 'package:flutter/widgets.dart';
+import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_builder_extra_fields/src/fields/form_builder_searchable_dropdown.dart';
@@ -57,5 +58,27 @@ void main() {
     expect(formSave(), isTrue);
     expect(formFieldValue(textFieldName), isNull);
     expect(result, isNull);
+  });
+
+  testWidgets('defaults selected value style to Theme.textTheme.titleMedium', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(
+      buildTestableFieldWidget(
+        FormBuilderSearchableDropdown<String>(
+          name: textFieldName,
+          initialValue: initialTextValue,
+          items: options,
+        ),
+      ),
+    );
+
+    final dropdown = tester.widget<DropdownSearch<String>>(
+      find.byType(DropdownSearch<String>),
+    );
+    final theme = Theme.of(
+      tester.element(find.byType(FormBuilderSearchableDropdown<String>)),
+    );
+    expect(dropdown.decoratorProps.baseStyle, theme.textTheme.titleMedium);
   });
 }

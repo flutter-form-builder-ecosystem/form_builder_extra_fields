@@ -63,7 +63,9 @@ class FormBuilderSearchableMultiSelectDropdown<T>
   ///custom dropdown clear button icon properties
   final ClearButtonProps? clearButtonProps;
 
-  /// style on which to base the label
+  /// Style for the selected value text.
+  ///
+  /// Defaults to [TextTheme.titleMedium], matching [TextField].
   final TextStyle? dropdownSearchTextStyle;
 
   ///custom dropdown icon button properties
@@ -120,7 +122,9 @@ class FormBuilderSearchableMultiSelectDropdown<T>
                decoration: state.decoration,
                textAlign: dropdownSearchTextAlign,
                textAlignVertical: dropdownSearchTextAlignVertical,
-               baseStyle: dropdownSearchTextStyle,
+               baseStyle:
+                   dropdownSearchTextStyle ??
+                   Theme.of(state.context).textTheme.titleMedium,
              ),
              suffixProps: DropdownSuffixProps(
                clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
