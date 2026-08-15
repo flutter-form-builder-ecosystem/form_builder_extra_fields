@@ -27,6 +27,10 @@ ___
 
 - Add several type of inputs to `flutter_form_builder`
 
+| Complete form | Color picker | Rating bar | Searchable |
+| --- | --- | --- | --- |
+| ![Gif demonstration with all extra fields](screenshots/complete_form.gif) | ![Gif demonstration color picker](screenshots/color_picker.gif) | ![Gif demonstration rating bar](screenshots/rating_bar.gif) | ![Gif demonstration searchable dropdown](screenshots/searchable.gif) |
+
 ## Inputs
 
 The currently supported fields include:
