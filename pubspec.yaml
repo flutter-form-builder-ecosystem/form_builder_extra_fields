@@ -8,6 +8,15 @@ topics:
   - form
 funding:
   - https://opencollective.com/flutter-form-builder-ecosystem
+screenshots:
+  - description: Extra fields together — searchable dropdown, color picker, touch spin, rating bar, and signature pad.
+    path: screenshots/complete_form.gif
+  - description: Color picker fields with material and block picker swatches.
+    path: screenshots/color_picker.gif
+  - description: Rating bar with whole-star and half-star values.
+    path: screenshots/rating_bar.gif
+  - description: Searchable dropdown selecting a country from a local list.
+    path: screenshots/searchable.gif
 
 environment:
   sdk: ">=3.10.0 <4.0.0"

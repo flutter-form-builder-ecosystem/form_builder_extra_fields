@@ -19,8 +19,9 @@ flutter run
 
 ## Features
 
-- Demonstrates how to use various form builder fields.
-- Provides examples for customization and usage.
+- Home gallery for each extra field
+- Complete form plus smaller screens for picker types, search, validation, min/max, and disabled fields
+- Live form values so you can see what each widget stores
 
 ## Related Resources
 
