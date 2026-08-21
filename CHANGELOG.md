@@ -1,3 +1,31 @@
+## 13.0.0
+
+### BREAKING CHANGES
+
+* Set minimal Flutter version to 3.47.0
+* Set minimal Dart version to 3.13.0
+* Migrate to standalone `material_ui` package. See the [Flutter 3.47 blog post](https://flutter.dev/blog/whats-new-in-flutter-3-47) for more details.
+* Update `flutter_form_builder` dependency to ^11.0.0
+* Bump `dropdown_search` from ^6.0.2 to ^7.0.0
+  * `onChanged` renamed to `onSelected` in `DropdownSearch`
+  * `PopupPropsMultiSelection` renamed to `MultiSelectionPopupProps`
+* Bump `flutter_typeahead` from ^5.2.0 to ^6.0.0
+  * Remove `hideWithKeyboard` parameter (use `hideOnUnfocus` instead)
+
+### Features
+
+* Add `FormBuilderSearchableMultiSelectDropdown` widget by @3212-Enertech-Global in [#149](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/pull/149)
+* Add screenshots and visual example gallery by @AzazelSensei in [#155](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/pull/155)
+
+### Fixes
+
+* Fix: dispose `_typeAheadController` only if it was created inside `FormBuilderTypeAheadState` by @MickaelTitecaTAO in [#154](https://github.com/flutter-form-builder-ecosystem/form_builder_extra_fields/pull/154)
+
+### Chores
+
+* Recreate example native platform setup with Flutter 3.47.0
+* Update `signature` from ^6.3.0 to ^6.4.0
+
 ## 12.2.0
 
 * Set minimal Flutter version to 3.38.0
