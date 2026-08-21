@@ -38,7 +38,6 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
   final bool hideOnLoading;
   final bool hideOnEmpty;
   final bool hideOnError;
-  final bool hideWithKeyboard;
   final bool retainOnLoading;
   final bool hideOnSelect;
   final bool autoFlipDirection;
@@ -79,7 +78,6 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
     this.hideOnEmpty = false,
     this.hideOnError = false,
     this.hideOnLoading = false,
-    this.hideWithKeyboard = true,
     this.retainOnLoading = true,
     this.hideOnSelect = true,
     this.loadingBuilder,
@@ -154,11 +152,10 @@ class FormBuilderTypeAhead<T> extends FormBuilderFieldDecoration<T> {
              offset: offset,
              animationDuration: animationDuration,
              direction: direction,
-             hideOnLoading: hideOnLoading,
-             hideOnEmpty: hideOnEmpty,
-             hideOnError: hideOnError,
-             hideWithKeyboard: hideWithKeyboard,
-             retainOnLoading: retainOnLoading,
+              hideOnLoading: hideOnLoading,
+              hideOnEmpty: hideOnEmpty,
+              hideOnError: hideOnError,
+              retainOnLoading: retainOnLoading,
              autoFlipDirection: autoFlipDirection,
              suggestionsController: suggestionsController,
              hideOnSelect: hideOnSelect,

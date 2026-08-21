@@ -29,11 +29,11 @@ dependencies:
   material_ui: ^1.0.0
   flutter_colorpicker: ^1.1.0
   dropdown_search: ^7.0.0
-  signature: ^6.3.0
+  signature: ^6.4.0
   # This version would be max, the same version used on flutter_localizations
   # https://github.com/flutter/flutter/blob/stable/packages/flutter_localizations/pubspec.yaml
   intl: ">=0.20.0 <0.21.0"
-  flutter_typeahead: ^5.2.0
+  flutter_typeahead: ^6.0.0
   flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
