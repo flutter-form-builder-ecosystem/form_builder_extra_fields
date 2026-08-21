@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:material_ui/material_ui.dart'
+    hide GlobalMaterialLocalizations;
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 import 'code_page.dart';

@@ -1,5 +1,5 @@
 import 'package:dropdown_search/dropdown_search.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_builder_extra_fields/src/fields/form_builder_searchable_multiselect_dropdown.dart';
@@ -18,8 +18,8 @@ void main() {
     bool enabled = true,
     String? Function(List<String>?)? validator,
     DropdownSearchBuilder<List<String>>? dropdownBuilder,
-    PopupPropsMultiSelection<String> popupProps =
-        const PopupPropsMultiSelection.menu(
+    MultiSelectionPopupProps<String> popupProps =
+        const MultiSelectionPopupProps.menu(
           showSearchBox: true,
           fit: FlexFit.loose,
         ),
@@ -269,7 +269,7 @@ void main() {
           buildTestableFieldWidget(
             buildWidget(
               fieldKey: key,
-              popupProps: const PopupPropsMultiSelection.menu(
+              popupProps: const MultiSelectionPopupProps.menu(
                 showSearchBox: true,
                 fit: FlexFit.loose,
                 searchDelay: Duration.zero,
@@ -346,7 +346,7 @@ void main() {
             buildWidget(
               fieldKey: key,
               asyncItems: (filter, _) async => ['Alpha', 'Beta', 'Gamma'],
-              popupProps: const PopupPropsMultiSelection.menu(
+              popupProps: const MultiSelectionPopupProps.menu(
                 showSearchBox: false,
                 fit: FlexFit.loose,
               ),
