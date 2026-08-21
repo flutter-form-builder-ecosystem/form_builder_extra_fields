@@ -19,18 +19,19 @@ screenshots:
     path: screenshots/searchable.gif
 
 environment:
-  sdk: ">=3.10.0 <4.0.0"
-  flutter: ">=3.38.0"
+  sdk: ">=3.13.0 <4.0.0"
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_form_builder: ^10.3.0+1
+  flutter_form_builder: ^11.0.0
+  material_ui: ^1.0.0
   flutter_colorpicker: ^1.1.0
   dropdown_search: ^6.0.2
   signature: ^6.3.0
   # This version would be max, the same version used on flutter_localizations
-  # https://github.com/flutter/flutter/blob/17025dd88227cd9532c33fa78f5250d548d87e9a/packages/flutter_localizations/pubspec.yaml#L14
+  # https://github.com/flutter/flutter/blob/stable/packages/flutter_localizations/pubspec.yaml
   intl: ">=0.20.0 <0.21.0"
   flutter_typeahead: ^5.2.0
   flutter_rating_bar: ^4.0.1
