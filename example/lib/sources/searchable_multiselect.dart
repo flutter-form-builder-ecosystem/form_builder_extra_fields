@@ -22,7 +22,7 @@ class SearchableMultiSelectExamples extends StatelessWidget {
             labelText: 'Offline multiselect',
             helperText: 'Search, then tick several countries',
           ),
-          popupProps: const PopupPropsMultiSelection.menu(
+          popupProps: const MultiSelectionPopupProps.menu(
             showSearchBox: true,
             fit: FlexFit.loose,
           ),
@@ -36,7 +36,7 @@ class SearchableMultiSelectExamples extends StatelessWidget {
             labelText: 'Online multiselect',
             helperText: 'Same picker after a 1s delay',
           ),
-          popupProps: const PopupPropsMultiSelection.menu(
+          popupProps: const MultiSelectionPopupProps.menu(
             showSearchBox: true,
             fit: FlexFit.loose,
           ),

@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
+  cupertino_icons:
+    dependency: transitive
+    description:
+      name: cupertino_icons
+      sha256: "41e005c33bd814be4d3096aff55b1908d419fde52ca656c8c47719ec745873cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.9"
   cupertino_ui:
     dependency: transitive
     description:
@@ -61,10 +69,10 @@ packages:
     dependency: "direct main"
     description:
       name: dropdown_search
-      sha256: c29b3e5147a82a06a4a08b3b574c51cb48cc17ad89893d53ee72a6f86643622e
+      sha256: f9414cca28d6414fdc1250f78a052bcb7ddb596f5a1affbca8e79737a979a60a
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "7.0.0"
   fake_async:
     dependency: transitive
     description:

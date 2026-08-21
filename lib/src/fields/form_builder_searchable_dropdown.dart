@@ -157,9 +157,9 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
                  : asyncItems(filter, infiniteScrollProps),
              itemAsString: itemAsString,
              onBeforeChange: onBeforeChange,
-             onChanged: (value) {
-               state.didChange(value);
-             },
+              onSelected: (value) {
+                state.didChange(value);
+              },
              popupProps: popupProps,
              selectedItem: state.value,
            );

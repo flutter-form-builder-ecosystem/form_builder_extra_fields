@@ -67,7 +67,7 @@ class _CompleteFormState extends State<CompleteForm> {
               decoration: const InputDecoration(
                 labelText: 'Multiselect Dropdown Offline',
               ),
-              popupProps: const PopupPropsMultiSelection.menu(
+              popupProps: const MultiSelectionPopupProps.menu(
                 showSearchBox: true,
                 fit: FlexFit.loose,
               ),
@@ -90,7 +90,7 @@ class _CompleteFormState extends State<CompleteForm> {
               decoration: const InputDecoration(
                 labelText: 'Multiselect Dropdown Online',
               ),
-              popupProps: const PopupPropsMultiSelection.menu(
+              popupProps: const MultiSelectionPopupProps.menu(
                 showSearchBox: true,
                 fit: FlexFit.loose,
               ),

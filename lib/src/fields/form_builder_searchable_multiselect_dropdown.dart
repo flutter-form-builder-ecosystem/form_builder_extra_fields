@@ -58,7 +58,7 @@ class FormBuilderSearchableMultiSelectDropdown<T>
   final DropdownSearchOnFind<T>? asyncItems;
 
   //
-  final PopupPropsMultiSelection<T> popupProps;
+  final MultiSelectionPopupProps<T> popupProps;
 
   ///custom dropdown clear button icon properties
   final ClearButtonProps? clearButtonProps;
@@ -96,7 +96,7 @@ class FormBuilderSearchableMultiSelectDropdown<T>
     this.popupOnItemRemoved,
     this.popupSelectionWidget,
     this.selectedItems = const [],
-    this.popupProps = const PopupPropsMultiSelection.menu(
+    this.popupProps = const MultiSelectionPopupProps.menu(
       showSearchBox: true,
       fit: FlexFit.loose,
     ),
@@ -133,9 +133,9 @@ class FormBuilderSearchableMultiSelectDropdown<T>
              compareFn: compareFn,
              popupProps: popupProps,
              onBeforeChange: onBeforeChange,
-             onChanged: (value) {
-               state.didChange(value);
-             },
+              onSelected: (value) {
+                state.didChange(value);
+              },
              dropdownBuilder: dropdownBuilder,
              selectedItems: state.value ?? [],
            );
