@@ -5,6 +5,14 @@ on:
     types: [opened, synchronize, reopened, edited]
 
 jobs:
+  anti-slop:
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
+    if: ${{ github.event.action == 'opened' || github.event.action == 'reopened' }}
+    uses: flutter-form-builder-ecosystem/.github/.github/workflows/pr-quality.yaml@main
+
   validate-pr-title:
     runs-on: ubuntu-latest
     permissions:

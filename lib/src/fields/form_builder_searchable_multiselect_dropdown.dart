@@ -134,9 +134,9 @@ class FormBuilderSearchableMultiSelectDropdown<T>
              compareFn: compareFn,
              popupProps: popupProps,
              onBeforeChange: onBeforeChange,
-              onSelected: (value) {
-                state.didChange(value);
-              },
+             onSelected: (value) {
+               state.didChange(value);
+             },
              dropdownBuilder: dropdownBuilder,
              selectedItems: state.value ?? [],
            );

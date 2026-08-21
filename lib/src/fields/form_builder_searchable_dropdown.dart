@@ -146,21 +146,21 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
                dropdownButtonProps:
                    dropdownButtonProps ?? const DropdownButtonProps(),
              ),
-               decoratorProps: DropDownDecoratorProps(
-                 decoration: state.decoration.copyWith(),
-                textAlign: dropdownSearchTextAlign,
-                textAlignVertical: dropdownSearchTextAlignVertical,
-                baseStyle: dropdownSearchTextStyle,
-              ),
+             decoratorProps: DropDownDecoratorProps(
+               decoration: state.decoration.copyWith(),
+               textAlign: dropdownSearchTextAlign,
+               textAlignVertical: dropdownSearchTextAlignVertical,
+               baseStyle: dropdownSearchTextStyle,
+             ),
              filterFn: filterFn,
              items: (filter, infiniteScrollProps) => asyncItems == null
                  ? items
                  : asyncItems(filter, infiniteScrollProps),
              itemAsString: itemAsString,
              onBeforeChange: onBeforeChange,
-              onSelected: (value) {
-                state.didChange(value);
-              },
+             onSelected: (value) {
+               state.didChange(value);
+             },
              popupProps: popupProps,
              selectedItem: state.value,
            );
