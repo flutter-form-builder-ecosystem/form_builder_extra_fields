@@ -1,7 +1,8 @@
-// ignore_for_file: argument_type_not_assignable
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+
+import '../utils/input_decoration_converter.dart';
 
 /// Field for selecting value(s) from a searchable list
 class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
@@ -147,7 +148,7 @@ class FormBuilderSearchableDropdown<T> extends FormBuilderFieldDecoration<T> {
                    dropdownButtonProps ?? const DropdownButtonProps(),
              ),
              decoratorProps: DropDownDecoratorProps(
-               decoration: state.decoration.copyWith(),
+               decoration: convertInputDecoration(state.decoration),
                textAlign: dropdownSearchTextAlign,
                textAlignVertical: dropdownSearchTextAlignVertical,
                baseStyle: dropdownSearchTextStyle,

@@ -1,4 +1,5 @@
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter/material.dart' as flutter;
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -200,7 +201,7 @@ void main() {
             await tester.pumpAndSettle();
           }
 
-          await tester.tap(find.text('OK'));
+          await tester.tap(find.text('DONE'));
           await tester.pumpAndSettle();
 
           expect(changedValue, equals(['One', 'Three']));
@@ -249,7 +250,7 @@ void main() {
           await tester.tap(oneFinder, warnIfMissed: false);
           await tester.pumpAndSettle();
 
-          await tester.tap(find.text('OK'));
+          await tester.tap(find.text('DONE'));
           await tester.pumpAndSettle();
 
           // Only 'Two' should remain.
@@ -295,7 +296,7 @@ void main() {
         );
 
         // Type a search query that matches only 'Three'.
-        final searchField = find.byType(TextField).last;
+        final searchField = find.byType(flutter.TextField).last;
         await tester.enterText(searchField, 'Thr');
         // Timer(Duration.zero) fires on the next microtask; pumpAndSettle
         // advances through it and the subsequent async items reload.
@@ -315,7 +316,7 @@ void main() {
         );
 
         // Close the popup cleanly so no timers remain pending at teardown.
-        await tester.tap(find.text('OK'));
+        await tester.tap(find.text('DONE'));
         await tester.pumpAndSettle();
       });
     });
@@ -371,7 +372,7 @@ void main() {
           findsOneWidget,
         );
 
-        await tester.tap(find.text('OK'));
+        await tester.tap(find.text('DONE'));
         await tester.pumpAndSettle();
       });
     });
@@ -404,7 +405,7 @@ void main() {
         await tester.tap(itemFinder, warnIfMissed: false);
         await tester.pumpAndSettle();
 
-        await tester.tap(find.text('OK'));
+        await tester.tap(find.text('DONE'));
         await tester.pumpAndSettle();
 
         expect(formSave(), isTrue);
