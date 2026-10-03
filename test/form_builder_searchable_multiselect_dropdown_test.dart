@@ -1,5 +1,4 @@
 import 'package:dropdown_search/dropdown_search.dart';
-import 'package:flutter/material.dart' as flutter;
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -296,7 +295,7 @@ void main() {
         );
 
         // Type a search query that matches only 'Three'.
-        final searchField = find.byType(flutter.TextField).last;
+        final searchField = find.byType(TextField).last;
         await tester.enterText(searchField, 'Thr');
         // Timer(Duration.zero) fires on the next microtask; pumpAndSettle
         // advances through it and the subsequent async items reload.
